@@ -26,5 +26,5 @@ jobs:
         pip install xonsh
     - name: Test xonshrc
       run: |
-        r=$(xonsh --rc xonshrc -i -c 'echo OK')
+        r=$(xonsh xonshrc)
         echo Result: $? $r
