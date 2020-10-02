@@ -21,6 +21,9 @@ aliases['cp'] = ['rsync', '--progress', '--recursive']
 # Example: cd ~/git/xonsh && greps environ
 aliases['greps'] = 'grep -ri'
 
+# Run http server in the current directory
+aliases['http-here'] = 'python3 -m http.server'
+
 # Don't clear the screen after quitting a manual page
 $MANPAGER = "less -X"
 $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
