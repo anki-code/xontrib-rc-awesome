@@ -37,7 +37,7 @@ if _xontribs:
 
 from xonsh.platform import ON_LINUX  #ON_DARWIN, ON_WINDOWS, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
 
-if ON_LINUX and $(which lsb_release):
+if ON_LINUX:
 
     # cd-ing shortcuts.
     aliases['-'] = 'cd -'
@@ -90,8 +90,9 @@ if ON_LINUX and $(which lsb_release):
     if _xontribs:
         xontrib load @(_xontribs)
 
-    linux_name, linux_version = $(lsb_release --id --release --short).strip().split('\n')
-    if linux_name == 'Ubuntu':
-        #xontrib load apt_tabcomplete
-        pass
+    if $(which lsb_release):
+        linux_name, linux_version = $(lsb_release --id --release --short).strip().split('\n')
+        if linux_name == 'Ubuntu':
+            #xontrib load apt_tabcomplete
+            pass
         
