@@ -13,8 +13,8 @@ Add awesome xonshrc to the end of current xonshrc:
 # Cross platform
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
-$AUTO_CD = True  # Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
+# Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
+$AUTO_CD = True
 
 
 # SSH: Suppress "Connection close" message.
