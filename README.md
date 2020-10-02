@@ -13,9 +13,5 @@ Add [awesome xonshrc](https://github.com/anki-code/awesome-xonshrc/blob/main/xon
 curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc >> ~/.xonshrc
 ```
 
-### Future
-
-Awesome xonshrc could be rewritten in the future to create wizard or pack of features where functions switch on or off easily.
-
 ### Acknowledgments
 * [Sean Farley xonshrc](https://github.com/seanfarley/dotfiles/blob/master/xonshrc)
