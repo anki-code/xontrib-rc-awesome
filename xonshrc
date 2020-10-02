@@ -34,15 +34,13 @@ aliases['ssh'] = 'ssh -o LogLevel=QUIET'
 
 # List all files: sorted, with colors, directories will be first (Midnight Commander style).
 def _ll(args):
-     with ${...}.swap(LC_COLLATE='C'):
-         ls --group-directories-first -lah --color @(args)
+     $LC_COLLATE='C' ls --group-directories-first -lah --color @(args)
 aliases['ll'] = _ll
 del _ll
 
 # Make directory and cd into it
 def _md(args, stdin=None):
-    mkdir -p @(args[0])
-    cd @(args[0])
+    mkdir -p @(args[0]) && cd @(args[0])
 aliases['md'] = _md
 del _md
 
