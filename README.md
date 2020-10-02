@@ -1,5 +1,5 @@
 <p align="center">
-Awesome snippets code to make .xonshrc better.
+Awesome snippets of code for xonshrc in xonsh shell. 
 </p>
 
 <p align="center">
