@@ -12,6 +12,7 @@ Add awesome xonshrc to the end of current xonshrc:
 # cd-ing shortcuts.
 aliases['-'] = 'cd -'
 aliases['..'] = 'cd ..'
+aliases['....'] = 'cd ../..'
 $AUTO_CD = True  # Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
 
 # Using rsync instead of cp to get the progress and speed of copying.
@@ -60,3 +61,13 @@ _xontribs = [
 ]
 if _xontribs:
     xontrib load @(_xontribs)
+
+#
+# Crossplatform
+#
+#from xonsh.platform import ON_LINUX #ON_DARWIN, ON_WINDOWS, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
+#if ON_LINUX:
+#    if $(which lsb_release):
+#        linux_name, linux_version = $(lsb_release --id --release --short).strip().split('\n')
+#        if linux_name == 'Ubuntu':
+#            xontrib load apt_tabcomplete
