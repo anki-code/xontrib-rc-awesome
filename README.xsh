@@ -1,5 +1,7 @@
+# 
 # Awesome snippets code to make .xonshrc better.
 # If you like the idea of xxh click ⭐ on the repo and stay tuned. 
+# 
 
 # cd-ing shortcuts
 aliases['-'] = 'cd -'
