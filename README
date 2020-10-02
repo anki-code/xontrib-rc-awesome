@@ -1,40 +1,19 @@
-<p align="center">
-Awesome snippets code to make <code>.xonshrc</code> better.
-</p>
+# Awesome snippets code to make .xonshrc better.
+# If you like the idea of xxh click ⭐ on the repo and stay tuned. 
 
-<p align="center">  
-If you like the idea of xxh click ⭐ on the repo and stay tuned.
-</p>
-
-#### cd-ing shortcuts
-```python
+# cd-ing shortcuts
 aliases['-'] = 'cd -'
 aliases['..'] = 'cd ..'
-```
 
-#### Avoid typing cd
-```python
+# Avoid typing cd just directory path
 $AUTO_CD = True
-```
 
-#### Don't clear the screen after quitting a manual page 
-```python
+# Don't clear the screen after quitting a manual page
 $MANPAGER = "less -X"
 $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
-```
 
-
-#### SSH: Suppress "Connection close" message
-```python
+# SSH: Suppress "Connection close" message
 aliases['ssh']='ssh -o LogLevel=QUIET'
-```
 
-#### Syntax highlighting for xonshrc on Github
-Add the lines to `.gitattributes`:
-```
-*xonshrc text linguist-language=Python
-*.xsh text linguist-language=Python
-```
-
-## Acknowledgments
-* [Sean Farley xonshrc](https://github.com/seanfarley/dotfiles/blob/master/xonshrc)
+## Acknowledgments:
+* Sean Farley xonshrc - https://github.com/seanfarley/dotfiles/blob/master/xonshrc
