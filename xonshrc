@@ -12,13 +12,11 @@ Add awesome xonshrc to the end of current xonshrc:
 # cd-ing shortcuts
 aliases['-'] = 'cd -'
 aliases['..'] = 'cd ..'
-
-# Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
-$AUTO_CD = True
+$AUTO_CD = True  # Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
 
 # Don't clear the screen after quitting a manual page
 $MANPAGER = "less -X"
 $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
 
 # SSH: Suppress "Connection close" message
-aliases['ssh']='ssh -o LogLevel=QUIET'
+aliases['ssh'] = 'ssh -o LogLevel=QUIET'
