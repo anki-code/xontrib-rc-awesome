@@ -69,4 +69,5 @@ from xonsh.platform import ON_LINUX  #ON_DARWIN, ON_WINDOWS, ON_CYGWIN, ON_MSYS,
 if ON_LINUX and $(which lsb_release):
     linux_name, linux_version = $(lsb_release --id --release --short).strip().split('\n')
     if linux_name == 'Ubuntu':
-        xontrib load apt_tabcomplete
+        #xontrib load apt_tabcomplete
+        pass
