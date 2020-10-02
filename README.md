@@ -32,8 +32,7 @@ aliases['ssh']='ssh -o LogLevel=QUIET'
 #### Syntax highlighting for xonshrc on Github
 Add the lines to `.gitattributes`:
 ```
-xonshrc text linguist-language=Python
-.xonshrc text linguist-language=Python
+*xonshrc text linguist-language=Python
 *.xsh text linguist-language=Python
 ```
 
