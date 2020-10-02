@@ -17,6 +17,10 @@ $AUTO_CD = True  # Avoid typing cd just directory path. Docs: https://xonsh.gith
 # Using rsync instead of cp to get the progress and speed of copying
 aliases['cp'] = ['rsync', '--progress', '--recursive']
 
+# Grepping string occurrences recursively starting from current directory
+# Example: cd ~/git/xonsh && greps environ
+aliases['greps'] = 'grep -ri'
+
 # Don't clear the screen after quitting a manual page
 $MANPAGER = "less -X"
 $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
