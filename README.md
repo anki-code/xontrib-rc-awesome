@@ -30,4 +30,4 @@ aliases['ssh']='ssh -o LogLevel=QUIET'
 ```
 
 # Acknowledgments
-* [Sean Farley](https://github.com/seanfarley/)`s xonshrc
+* [Sean Farley xonshrc](https://github.com/seanfarley/)
