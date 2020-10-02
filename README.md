@@ -18,4 +18,4 @@ curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc
 ```
 
 ### Acknowledgments
-* Sean Farley xonshrc - https://github.com/seanfarley/dotfiles/blob/master/xonshrc
+* [Sean Farley xonshrc](https://github.com/seanfarley/dotfiles/blob/master/xonshrc)
