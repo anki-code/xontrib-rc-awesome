@@ -1,5 +1,5 @@
 <p align="center">
-Awesome snippets code to make <code>.xonshrc</code> file better.
+Awesome snippets code to make <code>.xonshrc</code> better.
 </p>
 
 <p align="center">  
