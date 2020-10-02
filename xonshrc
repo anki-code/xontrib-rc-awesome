@@ -23,3 +23,9 @@ $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
 
 # SSH: Suppress "Connection close" message
 aliases['ssh'] = 'ssh -o LogLevel=QUIET'
+
+# List all files: sorted, with colors, directories will be first (Midnight Commander style)
+def _ll(args):
+     with ${...}.swap(LC_COLLATE='C'):
+         ls --group-directories-first -lah --color @(args)
+aliases['ll'] = _ll
