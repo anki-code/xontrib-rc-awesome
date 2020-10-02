@@ -14,7 +14,7 @@ If you like the idea click ⭐ on the repo and stay tuned.
 
 Add awesome xonshrc to the end of current xonshrc:
 ```xonsh
-curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc > ~/.xonshrc
+curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc >> ~/.xonshrc
 ```
 
 ### Acknowledgments
