@@ -13,6 +13,13 @@ Add awesome xonshrc to the end of current xonshrc:
 # Cross platform
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# Registering types for environment variables
+${...}.register(re.compile(r"\w*_DIR$"), 'path')
+${...}.register(re.compile(r"\w*_DIRS$"), 'env_path')
+${...}.register(re.compile(r"\w*_FILE$"), 'path')
+${...}.register(re.compile(r"\w*_FILES$"), 'env_path')
+
+
 # cd-ing shortcuts.
 aliases['-'] = 'cd -'
 aliases['..'] = 'cd ..'
