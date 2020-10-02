@@ -1,7 +1,12 @@
-# 
-# Awesome snippets code to make .xonshrc better.
-# If you like the idea of xxh click ⭐ on the repo and stay tuned. 
-# 
+"""
+Awesome snippets code to make .xonshrc better.
+If you like the idea click ⭐ on the repo and stay tuned. 
+
+Install awesome xonshrc:
+
+    curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/README.xsh > ~/.xonshrc
+    
+""" 
 
 # cd-ing shortcuts
 aliases['-'] = 'cd -'
