@@ -29,5 +29,13 @@ $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
 aliases['ssh']='ssh -o LogLevel=QUIET'
 ```
 
-# Acknowledgments
+#### Syntax highlighting for xonshrc on Github
+Add the lines to `.gitattributes`:
+```
+xonshrc text linguist-language=Python
+.xonshrc text linguist-language=Python
+*.xsh text linguist-language=Python
+```
+
+## Acknowledgments
 * [Sean Farley xonshrc](https://github.com/seanfarley/dotfiles/blob/master/xonshrc)
