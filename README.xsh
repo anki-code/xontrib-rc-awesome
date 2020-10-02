@@ -17,5 +17,7 @@ $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
 # SSH: Suppress "Connection close" message
 aliases['ssh']='ssh -o LogLevel=QUIET'
 
-## Acknowledgments:
-* Sean Farley xonshrc - https://github.com/seanfarley/dotfiles/blob/master/xonshrc
+# Acknowledgments:
+"""
+Sean Farley xonshrc - https://github.com/seanfarley/dotfiles/blob/master/xonshrc
+"""
