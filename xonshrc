@@ -13,6 +13,12 @@ Add awesome xonshrc to the end of current xonshrc:
 # Cross platform
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# cd-ing shortcuts.
+aliases['-'] = 'cd -'
+aliases['..'] = 'cd ..'
+aliases['....'] = 'cd ../..'
+
+
 # Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
 $AUTO_CD = True
 
@@ -38,12 +44,6 @@ if _xontribs:
 from xonsh.platform import ON_LINUX  #ON_DARWIN, ON_WINDOWS, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
 
 if ON_LINUX:
-
-    # cd-ing shortcuts.
-    aliases['-'] = 'cd -'
-    aliases['..'] = 'cd ..'
-    aliases['....'] = 'cd ../..'
-
     
     # Using rsync instead of cp to get the progress and speed of copying.
     aliases['cp'] = ['rsync', '--progress', '--recursive']
