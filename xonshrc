@@ -14,6 +14,9 @@ aliases['-'] = 'cd -'
 aliases['..'] = 'cd ..'
 $AUTO_CD = True  # Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
 
+# Using rsync instead of cp to get the progress and speed of copying
+aliases['cp'] = ['rsync', '--progress', '--recursive']
+
 # Don't clear the screen after quitting a manual page
 $MANPAGER = "less -X"
 $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
