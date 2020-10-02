@@ -28,3 +28,6 @@ $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
 ```python
 aliases['ssh']='ssh -o LogLevel=QUIET'
 ```
+
+# Acknowledgments
+* [Sean Farley](https://github.com/seanfarley/)`s xonshrc
