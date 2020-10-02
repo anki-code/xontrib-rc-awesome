@@ -13,7 +13,7 @@ Add awesome xonshrc to the end of current xonshrc:
 # Cross platform
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# Registering types for environment variables (xonsh > 0.9.22)
+# Registering types of environment variables (xonsh > 0.9.22)
 #${...}.register(re.compile(r"\w*_DIR$"), 'path')
 #${...}.register(re.compile(r"\w*_DIRS$"), 'env_path')
 #${...}.register(re.compile(r"\w*_FILE$"), 'path')
