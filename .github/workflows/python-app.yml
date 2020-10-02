@@ -27,4 +27,5 @@ jobs:
     - name: Test xonshrc
       run: |
         r=$(xonsh xonshrc 2>&1)
-        exit 1
+        print $r
+        [ "$r" == "" ] && exit 0 || exit 1
