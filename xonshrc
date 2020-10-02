@@ -13,7 +13,7 @@ Install awesome xonshrc:
 aliases['-'] = 'cd -'
 aliases['..'] = 'cd ..'
 
-# Avoid typing cd just directory path
+# Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
 $AUTO_CD = True
 
 # Don't clear the screen after quitting a manual page
