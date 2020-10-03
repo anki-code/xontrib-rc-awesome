@@ -20,13 +20,21 @@ Add awesome xonshrc to the end of current xonshrc:
 #${...}.register(re.compile(r"\w*_FILES$"), 'env_path')
 
 
+# What commands are saved to the history list. By default all commands are saved. 
+# The option ‘ignoredups’ will not save the command if it matches the previous command.
+# The option `erasedups` will remove all previous commands that matches and updates the frequency.
+# Docs: https://xonsh.github.io/envvars.html#histcontrol
+$HISTCONTROL='ignoredups,erasedups'
+
+
 # cd-ing shortcuts.
 aliases['-'] = 'cd -'
 aliases['..'] = 'cd ..'
 aliases['....'] = 'cd ../..'
 
 
-# Avoid typing cd just directory path. Docs: https://xonsh.github.io/envvars.html#auto-cd
+# Avoid typing cd just directory path. 
+# Docs: https://xonsh.github.io/envvars.html#auto-cd
 $AUTO_CD = True
 
 
