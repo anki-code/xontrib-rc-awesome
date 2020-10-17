@@ -55,7 +55,6 @@ from xonsh.platform import ON_LINUX  #ON_DARWIN, ON_WINDOWS, ON_CYGWIN, ON_MSYS,
 if ON_LINUX:
     
     # Globbing files with “*” or “**” will also match dotfiles, or those ‘hidden’ files whose names begin with a literal ‘.’. 
-    # Such files are filtered out by default.
     # Note! This affects also on rsync and other tools.
     $DOTGLOB = True
     
