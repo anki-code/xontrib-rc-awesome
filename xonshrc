@@ -79,7 +79,7 @@ if ON_LINUX:
 
     # List all files: sorted, with colors, directories will be first (Midnight Commander style).
     def _ll(args):
-        $LC_COLLATE='C' ls --group-directories-first -lah --color @(args)
+        $LC_COLLATE='C' ls --group-directories-first -lAh --color @(args)
     aliases['ll'] = _ll
     del _ll
 
