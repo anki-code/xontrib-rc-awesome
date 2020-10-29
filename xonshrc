@@ -21,7 +21,7 @@ Add awesome xonshrc to the end of current xonshrc:
 $HISTCONTROL='ignoredups,erasedups'
 
 
-# Remove front dot in multiline input to make it copy-pastable.
+# Remove front dot in multiline input to make the text copy-pastable.
 $MULTILINE_PROMPT=' '
 
 
