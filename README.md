@@ -14,9 +14,10 @@ curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc
 ```
 
 ### Acknowledgments
-* [Anthony Scopatz xonshrc](https://github.com/xonsh/xonsh/pull/3917#issuecomment-715649009)
-* [Sean Farley xonshrc](https://github.com/seanfarley/dotfiles/blob/master/xonshrc)
-* [Gyuri Horak xonshrc](https://github.com/dyuri/rcfiles/blob/master/.xonshrc)
+* [Anthony Scopatz RC](https://github.com/xonsh/xonsh/pull/3917#issuecomment-715649009)
+* [Sean Farley RC](https://github.com/seanfarley/dotfiles/blob/master/xonshrc)
+* [Gyuri Horak RC](https://github.com/dyuri/rcfiles/blob/master/.xonshrc)
+* [Alexander Sosedkin RC](https://github.com/t184256/nix-configs/tree/main/user/xonsh/config)
 
 ### See also
 * [xonsh-cheatsheet](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md) - cheat sheet for xonsh shell with copy-pastable examples.
