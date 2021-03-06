@@ -13,6 +13,9 @@ Add awesome xonshrc to the end of current xonshrc:
 # Cross platform
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+# The SQLite history backend saves command immediately 
+# unlike JSON backend that save the commands at the end of the session.
+$XONSH_HISTORY_BACKEND = 'sqlite'
 
 # What commands are saved to the history list. By default all commands are saved. 
 # The option ‘ignoredups’ will not save the command if it matches the previous command.
@@ -21,7 +24,7 @@ Add awesome xonshrc to the end of current xonshrc:
 $HISTCONTROL='ignoredups,erasedups'
 
 
-# Remove front dot in multiline input to make the text copy-pastable.
+# Remove front dot in multiline input to make the code copy-pastable.
 $MULTILINE_PROMPT=' '
 
 
@@ -34,11 +37,6 @@ aliases['....'] = 'cd ../..'
 # Avoid typing cd just directory path. 
 # Docs: https://xonsh.github.io/envvars.html#auto-cd
 $AUTO_CD = True
-
-
-# SSH: Suppress "Connection close" message.
-aliases['ssh'] = 'ssh -o LogLevel=QUIET'
-
 
 #
 # Xontribs  |  Official list - https://xon.sh/xontribs.html  |  Github topic with thumbnails - https://github.com/topics/xontrib
@@ -61,6 +59,10 @@ if ON_LINUX:
     # Globbing files with “*” or “**” will also match dotfiles, or those ‘hidden’ files whose names begin with a literal ‘.’. 
     # Note! This affects also on rsync and other tools.
     $DOTGLOB = True
+
+
+    # SSH: Suppress "Connection close" message.
+    aliases['ssh'] = 'ssh -o LogLevel=QUIET'
     
     
     # Using rsync instead of cp to get the progress and speed of copying.
