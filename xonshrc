@@ -77,9 +77,11 @@ if ON_LINUX:
     # Run http server in the current directory.
     aliases['http-here'] = 'python3 -m http.server'
 
+
     # The example of alias that calls the command with arguments
     aliases['docker-exec-bash'] = lambda args: $[docker exec -it @(args) bash]
-    
+
+
     # Don't clear the screen after quitting a manual page.
     $MANPAGER = "less -X"
     $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
