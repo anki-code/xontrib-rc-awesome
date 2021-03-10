@@ -88,14 +88,11 @@ if ON_LINUX:
 
 
     # List all files: sorted, with colors, directories will be first (Midnight Commander style).
-    def _ll(args):
-        $LC_COLLATE='C' ls --group-directories-first -lAh --color @(args)
-    aliases['ll'] = _ll
-    del _ll
+    aliases['ll'] = lambda args: $[$LC_COLLATE='C' ls --group-directories-first -lAh --color @(args)]
 
     
     # Make directory and cd into it
-    def _md(args, stdin=None):
+    def _md(args):
         mkdir -p @(args[0]) && cd @(args[0])
     aliases['md'] = _md
     del _md
