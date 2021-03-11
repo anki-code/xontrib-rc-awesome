@@ -60,28 +60,6 @@ if ON_LINUX:
     # Note! This affects also on rsync and other tools.
     $DOTGLOB = True
 
-
-    # SSH: Suppress "Connection close" message.
-    aliases['ssh'] = 'ssh -o LogLevel=QUIET'
-    
-    
-    # Using rsync instead of cp to get the progress and speed of copying.
-    aliases['cp'] = ['rsync', '--progress', '--recursive', '--archive']
-
-    
-    # Grepping string occurrences recursively starting from current directory.
-    # Example: cd ~/git/xonsh && greps environ
-    aliases['greps'] = 'grep -ri'
-
-    
-    # Run http server in the current directory.
-    aliases['http-here'] = 'python3 -m http.server'
-
-
-    # The example of alias that calls the command with arguments
-    aliases['docker-exec-bash'] = lambda args: $[docker exec -it @(args) bash]
-
-
     # Don't clear the screen after quitting a manual page.
     $MANPAGER = "less -X"
     $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
@@ -90,12 +68,24 @@ if ON_LINUX:
     # List all files: sorted, with colors, directories will be first (Midnight Commander style).
     aliases['ll'] = lambda args: $[$LC_COLLATE='C' ls --group-directories-first -lAh --color @(args)]
 
-    
     # Make directory and cd into it
-    def _md(args):
-        mkdir -p @(args[0]) && cd @(args[0])
-    aliases['md'] = _md
-    del _md
+    aliases['md'] = lambda args: execx(f'mkdir {repr(args[0])} && cd {repr(args[0])}')
+        
+    # Using rsync instead of cp to get the progress and speed of copying.
+    aliases['cp'] = ['rsync', '--progress', '--recursive', '--archive']
+    
+    # Grepping string occurrences recursively starting from current directory.
+    # Example: cd ~/git/xonsh && greps environ
+    aliases['greps'] = 'grep -ri'
+
+    # SSH: Suppress "Connection close" message.
+    aliases['ssh'] = 'ssh -o LogLevel=QUIET'
+
+    # Run http server in the current directory.
+    aliases['http-here'] = 'python3 -m http.server'
+
+    # The example of alias that calls the command with arguments
+    aliases['docker-exec-bash'] = lambda args: $[docker exec -it @(args) bash]
 
     
     #
