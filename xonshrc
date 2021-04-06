@@ -68,8 +68,9 @@ if ON_LINUX:
     # List all files: sorted, with colors, directories will be first (Midnight Commander style).
     aliases['ll'] = lambda args: $[$LC_COLLATE='C' ls --group-directories-first -lAh --color @(args)]
 
-    # Make directory and cd into it
-    aliases['md'] = lambda args: execx(f'mkdir {repr(args[0])} && cd {repr(args[0])}')
+    # Make directory and cd into it.
+    # Example: md /tmp/my/awesome/dir/will/be/here
+    aliases['md'] = lambda args: execx(f'mkdir -p {repr(args[0])} && cd {repr(args[0])}')
         
     # Using rsync instead of cp to get the progress and speed of copying.
     aliases['cp'] = ['rsync', '--progress', '--recursive', '--archive']
