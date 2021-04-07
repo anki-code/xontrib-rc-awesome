@@ -3,7 +3,7 @@ Awesome snippets of code for xonshrc in xonsh shell.
 </p>
 
 <p align="center">
-If you like the idea click ⭐ on the repo and stay tuned. 
+If you like the idea click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20awesome%20rc%20file!&url=https://github.com/anki-code/awesome-xonshrc" target="_blank">tweet</a>.
 </p>
 
 ### Install
