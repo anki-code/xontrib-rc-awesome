@@ -19,9 +19,8 @@ $XONSH_HISTORY_BACKEND = 'sqlite'
 
 # What commands are saved to the history list. By default all commands are saved. 
 # The option ‘ignoredups’ will not save the command if it matches the previous command.
-# The option `erasedups` will remove all previous commands that matches and updates the frequency.
 # Docs: https://xonsh.github.io/envvars.html#histcontrol
-$HISTCONTROL='ignoredups,erasedups'
+$HISTCONTROL='ignoredups'
 
 
 # Remove front dot in multiline input to make the code copy-pastable.
