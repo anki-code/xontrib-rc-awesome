@@ -66,9 +66,15 @@ if ON_LINUX:
     $MANPAGER = "less -X"
     $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
 
+    # Flag for automatically pushing directories onto the directory stack.
+    # It's for `mc` alias (below).
+    $AUTO_PUSHD = True
 
     # List all files: sorted, with colors, directories will be first (Midnight Commander style).
     aliases['ll'] = lambda args: $[$LC_COLLATE='C' ls --group-directories-first -lAh --color @(args)]
+
+    # Run Midnight Commander where left and right panel will be the current and the previous directory.
+    aliases['mc'] = "mc @($PWD if not $args else $args) @($OLDPWD if not $args else $PWD)"
 
     # Make directory and cd into it.
     # Example: md /tmp/my/awesome/dir/will/be/here
