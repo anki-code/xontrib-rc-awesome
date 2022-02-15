@@ -18,6 +18,7 @@ curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc
 * [Sean Farley RC](https://github.com/seanfarley/dotfiles/blob/c87811f50cd696a8d4ddce83c1ca295a00b70218/xonshrc)
 * [Gyuri Horak RC](https://github.com/dyuri/rcfiles/blob/master/.xonshrc)
 * [Alexander Sosedkin RC](https://github.com/t184256/nix-configs/tree/main/user/xonsh/config)
+* [Noorhteen Raja NJ RC](https://github.com/jnoortheen/xonfig)
 
 ### See also
 * [xonsh-cheatsheet](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md) - cheat sheet for xonsh shell with copy-pastable examples.
