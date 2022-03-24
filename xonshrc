@@ -78,7 +78,7 @@ if ON_LINUX:
 
     # Make directory and cd into it.
     # Example: md /tmp/my/awesome/dir/will/be/here
-    aliases['md'] = lambda args: execx(f'mkdir -p {repr(args[0])} && cd {repr(args[0])}')
+    aliases['md'] = 'mkdir -p $arg0 && cd $arg0'
         
     # Using rsync instead of cp to get the progress and speed of copying.
     aliases['cp'] = ['rsync', '--progress', '--recursive', '--archive']
