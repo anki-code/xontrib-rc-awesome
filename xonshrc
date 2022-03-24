@@ -71,7 +71,7 @@ if ON_LINUX:
     $AUTO_PUSHD = True
 
     # List all files: sorted, with colors, directories will be first (Midnight Commander style).
-    aliases['ll'] = lambda args: $[$LC_COLLATE='C' ls --group-directories-first -lAh --color @(args)]
+    aliases['ll'] = "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)"
 
     # Run Midnight Commander where left and right panel will be the current and the previous directory.
     aliases['mc'] = "mc @($PWD if not $args else $args) @($OLDPWD if not $args else $PWD)"
