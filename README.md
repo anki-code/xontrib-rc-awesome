@@ -8,9 +8,10 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
 
 ### Install
 
-Add [awesome xonshrc](https://github.com/anki-code/awesome-xonshrc/blob/main/xonshrc) to the end of current xonshrc:
 ```xonsh
-curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc >> ~/.xonshrc
+pip install https://github.com/anki-code/xontrib-rc-awesome
+echo 'xontrib load rc_awesome' >> ~/.xonshrc
+xonsh
 ```
 
 ### Interesting xonsh RC files
@@ -19,10 +20,6 @@ curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc
 * [Gyuri Horak RC](https://github.com/dyuri/rcfiles/blob/master/.xonshrc)
 * [Alexander Sosedkin RC](https://github.com/t184256/nix-configs/tree/main/user/xonsh/config)
 * [Noorhteen Raja NJ RC](https://github.com/jnoortheen/xonfig)
-
-### Metapackaging
-
-If you want to install all your xontribs using one command you can create metapackage like [xontrib-ergopack](https://github.com/anki-code/xontrib-ergopack) ([example](https://github.com/anki-code/xontrib-ergopack/blob/af753109a2c17ef114d9868766bb540118d2a7f2/setup.py#L20-L33)).
 
 ### See also
 * [xonsh-cheatsheet](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md) - cheat sheet for xonsh shell with copy-pastable examples.
