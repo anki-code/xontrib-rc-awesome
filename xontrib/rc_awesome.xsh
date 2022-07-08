@@ -118,8 +118,7 @@ if ON_LINUX or ON_DARWIN:
         xontrib load @(_xontribs)
 
     if $(which lsb_release):
-        linux_name, linux_version = $(lsb_release --id --release --short).strip().split('\n')
-        if linux_name == 'Ubuntu':
+        if 'Ubuntu' in $(lsb_release --id --release --short).strip():
             #xontrib load apt_tabcomplete
             pass
         
