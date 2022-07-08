@@ -54,9 +54,9 @@ if _xontribs:
 # Platform specific
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-from xonsh.platform import ON_LINUX  # ON_DARWIN, ON_WINDOWS, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
+from xonsh.platform import ON_LINUX, ON_DARWIN  #, ON_WINDOWS, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
 
-if ON_LINUX:
+if ON_LINUX or ON_DARWIN:
     
     # Globbing files with “*” or “**” will also match dotfiles, or those ‘hidden’ files whose names begin with a literal ‘.’. 
     # Note! This affects also on rsync and other tools.
@@ -88,9 +88,9 @@ if ON_LINUX:
     # Example: cd ~/git/xonsh && greps environ
     aliases['greps'] = 'grep -ri'
 
-    # Copy output to current clipboard using xclip
+    # Copy output to current clipboard using xclip.
     # Example: echo hello | clp
-    aliases['clp'] = 'xclip -sel clip'    
+    aliases['clp'] = 'pbcopy' if ON_DARWIN else 'xclip -sel clip'    
 
     # SSH: Suppress "Connection close" message.
     aliases['ssh'] = 'ssh -o LogLevel=QUIET'
