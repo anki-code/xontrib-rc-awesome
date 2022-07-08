@@ -9,7 +9,7 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
 ### Install
 
 ```xonsh
-pip install https://github.com/anki-code/xontrib-rc-awesome
+pip install -U git+https://github.com/anki-code/xontrib-rc-awesome
 echo 'xontrib load rc_awesome' >> ~/.xonshrc
 xonsh
 ```
