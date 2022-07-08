@@ -27,7 +27,7 @@ echo 'xontrib load rc_awesome' >> ~/.xonshrc
 xonsh
 ```
 
-#### The master way: create your own RC based on this repo
+#### The master way: create your own installable RC based on this repo
 
 1. Fork this repository
 2. Rename the repository to `xontrib-rc-yourname`
