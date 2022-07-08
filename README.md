@@ -22,7 +22,7 @@ curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc
 
 ### Metapackaging
 
-If you want to install all your xontribs using one command you can create metapackage like [xontrib-ergopack](https://github.com/anki-code/xontrib-ergopack).
+If you want to install all your xontribs using one command you can create metapackage like [xontrib-ergopack](https://github.com/anki-code/xontrib-ergopack) ([example](https://github.com/anki-code/xontrib-ergopack/blob/af753109a2c17ef114d9868766bb540118d2a7f2/setup.py#L20-L33)).
 
 ### See also
 * [xonsh-cheatsheet](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md) - cheat sheet for xonsh shell with copy-pastable examples.
