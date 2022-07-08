@@ -30,9 +30,11 @@ xonsh
 #### The master way: create your own RC based on this repo:
 
 1. Fork this repository
-2. Rename the repository to `xontrib-rc-yourname` and change the name [in setup.py](https://github.com/anki-code/xontrib-rc-awesome/blob/e21370c1155262b8e25bd354cb4d4f9f15945384/setup.py#L11). Also change the name of `xontrib/rc_awesome.xsh` to `rc_yourname.xsh`
-3. [Add xontribs you need to setup.py](https://github.com/anki-code/xontrib-rc-awesome/blob/e21370c1155262b8e25bd354cb4d4f9f15945384/setup.py#L20-L28)
-4. Now you can just run anywhere:
+2. Rename the repository to `xontrib-rc-yourname`
+3. Change the name [in setup.py](https://github.com/anki-code/xontrib-rc-awesome/blob/e21370c1155262b8e25bd354cb4d4f9f15945384/setup.py#L11)
+4. Change the name of `xontrib/rc_awesome.xsh` to `xontrib/rc_yourname.xsh`
+5. [Add xontribs you need to setup.py](https://github.com/anki-code/xontrib-rc-awesome/blob/e21370c1155262b8e25bd354cb4d4f9f15945384/setup.py#L20-L28)
+6. Now you can just run anywhere:
     ```xonsh
     pip install -U git+https://github.com/yourname/xontrib-rc-yourname
     echo 'xontrib load rc_yourname' >> ~/.xonshrc
