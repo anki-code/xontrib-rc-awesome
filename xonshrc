@@ -74,6 +74,7 @@ if ON_LINUX:
     aliases['ll'] = "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)"
 
     # Run Midnight Commander where left and right panel will be the current and the previous directory.
+    # Required: $AUTO_PUSHD = True
     aliases['mc'] = "mc @($PWD if not $args else $args) @($OLDPWD if not $args else $PWD)"
 
     # Make directory and cd into it.
