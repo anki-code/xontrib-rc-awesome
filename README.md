@@ -6,14 +6,6 @@ Awesome snippets of code for xonshrc in xonsh shell.
 If you like the idea click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20awesome%20rc%20file!&url=https://github.com/anki-code/awesome-xonshrc" target="_blank">tweet</a>.
 </p>
 
-### Install and try basic rc_awesome
-
-```xonsh
-pip install -U git+https://github.com/anki-code/xontrib-rc-awesome
-echo 'xontrib load rc_awesome' >> ~/.xonshrc
-xonsh
-```
-
 ### Use cases
 
 #### The simple way: just read
