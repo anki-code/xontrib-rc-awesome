@@ -19,6 +19,14 @@ Also interesting xonsh RC files from xonsh gurus:
 * [Alexander Sosedkin RC](https://github.com/t184256/nix-configs/tree/main/user/xonsh/config)
 * [Noorhteen Raja NJ RC](https://github.com/jnoortheen/xonfig)
 
+You can also try rc-awesome in action:
+
+```xonsh
+pip install -U git+https://github.com/anki-code/xontrib-rc-awesome
+echo 'xontrib load rc_awesome' >> ~/.xonshrc
+xonsh
+```
+
 #### The master way: create your own RC based on this repo:
 
 1. Fork this repository
