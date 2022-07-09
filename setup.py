@@ -19,9 +19,11 @@ setuptools.setup(
     python_requires='>=3.6',
     install_requires=[
         'xonsh',
-        #'xontrib-prompt-bar',
-        #'xontrib-back2dir',
-        #'xontrib-sh',
+        'xontrib-prompt-bar',
+        'xontrib-back2dir',
+        'xontrib-sh',
+        'xontrib-pipeliner',
+        'xontrib-output-search',
     ],
     extras_require={
         "xxh": ["xxh-xxh"],
