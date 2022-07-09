@@ -100,19 +100,17 @@ if ON_LINUX or ON_DARWIN:
     # Xontribs  |  Official list - https://xon.sh/xontribs.html  |  Github topic with thumbnails - https://github.com/topics/xontrib
     #
     _xontribs = [
-        #'back2dir'          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
-        #'prompt_bar',       # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
-        #'output_search',    # Get words from the previous command output for the next command. URL: https://github.com/tokenizer/xontrib-output-search
-        #'pipeliner',        # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
-        #'argcomplete',      # Tab completion of python and xonsh scripts. URL: https://github.com/anki-code/xontrib-argcomplete
-        #'onepath',          # Associate files with app and run it without preceding commands. URL: https://github.com/anki-code/xontrib-onepath
-        #'sh',               # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. URL: https://github.com/anki-code/xontrib-sh
+        'back2dir'          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
+        'prompt_bar',       # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
+        'output_search',    # Get words from the previous command output for the next command. URL: https://github.com/tokenizer/xontrib-output-search
+        'pipeliner',        # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
+        'sh',               # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. URL: https://github.com/anki-code/xontrib-sh
     ]
     if _xontribs:
         xontrib load @(_xontribs)
 
     if $(which lsb_release):
         if 'Ubuntu' in $(lsb_release --id --release --short).strip():
-            #xontrib load apt_tabcomplete
+            xontrib load apt_tabcomplete
             pass
         
