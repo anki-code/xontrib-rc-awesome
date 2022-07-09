@@ -27,6 +27,8 @@ jobs:
     - name: Test xonshrc
       run: |
         pip install .
-        r=$(xonsh -c 'xontrib load rc_awesome' 2>&1)
+        filename=$(basename -- $(ls xontrib/*.*))
+        xontrib_name="${filename%.*}"
+        r=$(xonsh -c "xontrib load $xontrib_name" 2>&1)
         echo $r
         [ "$r" == "" ] && exit 0 || exit 1
