@@ -10,7 +10,12 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
 
 #### The simple way: just read
 
-Just read [rc_awesome](https://github.com/anki-code/xontrib-rc-awesome/blob/main/xontrib/rc_awesome.xsh) and copy the snippets to your RC. 
+Just read [rc_awesome](https://github.com/anki-code/xontrib-rc-awesome/blob/main/xontrib/rc_awesome.xsh) and copy the snippets to your RC.
+
+To add to the end of your xonshrc:
+```
+curl -s https://raw.githubusercontent.com/anki-code/xontrib-rc-awesome/main/xontrib/rc_awesome.xsh >> ~/.xonshrc
+```
 
 Also interesting xonsh RC files from xonsh gurus:
 * [Anthony Scopatz RC](https://github.com/xonsh/xonsh/pull/3917#issuecomment-715649009) (click Details to see the xonshrc)
