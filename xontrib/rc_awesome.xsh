@@ -1,11 +1,11 @@
 """
 
-Awesome snippets code to make .xonshrc better - https://github.com/anki-code/awesome-xonshrc
+Awesome snippets code to make .xonshrc better - https://github.com/anki-code/xontrib-rc-awesome
 If you like the idea click ⭐ on the repo and stay tuned. 
 
 Add awesome xonshrc to the end of current xonshrc:
 
-    curl -s https://raw.githubusercontent.com/anki-code/awesome-xonshrc/main/xonshrc >> ~/.xonshrc
+    curl -s https://raw.githubusercontent.com/anki-code/xontrib-rc-awesome/main/xontrib/rc_awesome.xsh >> ~/.xonshrc
 
 """ 
 
