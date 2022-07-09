@@ -35,7 +35,7 @@ aliases['....'] = 'cd ../..'
 $AUTO_CD = True
 
 #
-# Xontribs  |  Official list - https://xon.sh/xontribs.html  |  Github topic with thumbnails - https://github.com/topics/xontrib
+# Xontribs - https://github.com/topics/xontrib
 #
 _xontribs = [
     'whole_word_jumping', # Jumping across whole words (non-whitespace) with Ctrl + Left/Right and Alt + Left/Right.
@@ -97,7 +97,7 @@ if ON_LINUX or ON_DARWIN:
     
     
     #
-    # Xontribs  |  Official list - https://xon.sh/xontribs.html  |  Github topic with thumbnails - https://github.com/topics/xontrib
+    # Xontribs - https://github.com/topics/xontrib
     #
     _xontribs = [
         'back2dir',          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
