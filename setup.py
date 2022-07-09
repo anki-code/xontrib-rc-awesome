@@ -9,7 +9,7 @@ except (IOError, OSError):
 
 setuptools.setup(
     name='xontrib-rc-awesome',
-    version='0.0.2',
+    version='0.0.3',
     license='MIT',
     author='anki-code',
     author_email='no@no.no',
