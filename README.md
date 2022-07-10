@@ -23,6 +23,7 @@ Also interesting xonsh RC files from xonsh gurus:
 * [Gyuri Horak RC](https://github.com/dyuri/rcfiles/blob/master/.xonshrc)
 * [Alexander Sosedkin RC](https://github.com/t184256/nix-configs/tree/main/user/xonsh/config)
 * [Noorhteen Raja NJ RC](https://github.com/jnoortheen/xonfig)
+* [Ryan Delaney RC](https://github.com/rpdelaney/dotfiles/tree/main/home/.config/xonsh)
 
 You can also try awesome RC in action:
 
