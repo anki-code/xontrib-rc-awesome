@@ -8,14 +8,16 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
 
 ### Use cases
 
-#### The simple way: just read
+#### Copy and paste
 
-Just read [rc_awesome](https://github.com/anki-code/xontrib-rc-awesome/blob/main/xontrib/rc_awesome.xsh) and copy the snippets to your RC.
+Just read [rc_awesome](https://github.com/anki-code/xontrib-rc-awesome/blob/main/xontrib/rc_awesome.xsh) and copy the snippets to your xonsh RC.
 
-To add to the end of your xonshrc:
+#### Add awesome xonsh RC to the end of your xonshrc
 ```
 curl -s https://raw.githubusercontent.com/anki-code/xontrib-rc-awesome/main/xontrib/rc_awesome.xsh >> ~/.xonshrc
 ```
+
+#### Learn from xonsh RC gurus
 
 Also interesting xonsh RC files from xonsh gurus:
 * [Anthony Scopatz RC](https://github.com/xonsh/xonsh/pull/3917#issuecomment-715649009) (click Details to see the xonshrc)
@@ -25,7 +27,7 @@ Also interesting xonsh RC files from xonsh gurus:
 * [Noorhteen Raja NJ RC](https://github.com/jnoortheen/xonfig)
 * [Ryan Delaney RC](https://github.com/rpdelaney/dotfiles/tree/main/home/.config/xonsh)
 
-You can also try awesome RC in action:
+#### Try awesome xonsh RC in action:
 
 ```xonsh
 pip install -U git+https://github.com/anki-code/xontrib-rc-awesome
@@ -33,7 +35,7 @@ echo 'xontrib load rc_awesome' >> ~/.xonshrc
 xonsh
 ```
 
-#### The master way: create your own installable RC based on this repo
+#### Create your own installable RC based on the awesome xonsh RC
 
 1. Fork this repository or use it as [template](https://docs.github.com/articles/creating-a-repository-from-a-template/)
 2. Rename the repository to `xontrib-rc-yourname`
