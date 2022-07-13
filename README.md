@@ -17,7 +17,7 @@ Or add awesome xonsh RC to the end of your xonshrc:
 curl -s https://raw.githubusercontent.com/anki-code/xontrib-rc-awesome/main/xontrib/rc_awesome.xsh >> ~/.xonshrc
 ```
 
-Or try it in action as a package:
+Or install awesome [xonsh RC as a package](https://github.com/anki-code/xontrib-rc-awesome/blob/fabe895fbdd89f7bd3050bf492aa0665624a9705/setup.py#L10-L16) with [automatically installable xontribs](https://github.com/anki-code/xontrib-rc-awesome/blob/fabe895fbdd89f7bd3050bf492aa0665624a9705/setup.py#L20-L30):
 ```xonsh
 pip install -U git+https://github.com/anki-code/xontrib-rc-awesome
 echo 'xontrib load rc_awesome' >> ~/.xonshrc
