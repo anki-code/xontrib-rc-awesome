@@ -7,7 +7,7 @@ If you like the idea click ⭐ on the repo and stay tuned.
 # Cross platform
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-# First of all replace `$` to `@` (or 🐚) in the prompt to not to be confused with another shell.
+# First of all replace `$` to `@` in the prompt to not to be confused with another shell.
 # More details - https://github.com/xonsh/xonsh/issues/4152#issue-823993141
 $PROMPT_FIELDS['prompt_end'] = '@'
 
