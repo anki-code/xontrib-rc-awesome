@@ -8,7 +8,9 @@ If you like the idea click ⭐ on the repo and stay tuned.
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # First of all replace `$` to `@` in the prompt to not to be confused with another shell.
-# More details - https://github.com/xonsh/xonsh/issues/4152#issue-823993141
+# It will be good to read 
+#  - https://github.com/anki-code/xonsh-cheatsheet#three-most-frequent-things-that-newcomers-missed
+#  - https://github.com/xonsh/xonsh/issues/4152#issue-823993141
 $PROMPT_FIELDS['prompt_end'] = '@'
 
 # The SQLite history backend saves command immediately 
