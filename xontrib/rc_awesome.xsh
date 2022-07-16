@@ -97,9 +97,6 @@ if ON_LINUX or ON_DARWIN:
 
     # Run http server in the current directory.
     aliases['http-here'] = 'python3 -m http.server'
-
-    # The example of alias that calls the command with arguments
-    aliases['docker-exec-bash'] = lambda args: $[docker exec -it @(args) bash]
     
     
     #
