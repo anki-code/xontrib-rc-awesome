@@ -82,7 +82,7 @@ if ON_LINUX or ON_DARWIN:
     aliases['md'] = 'mkdir -p $arg0 && cd $arg0'
         
     # Using rsync instead of cp to get the progress and speed of copying.
-    aliases['cp'] = ['rsync', '--progress', '--recursive', '--archive']
+    aliases['cp'] = 'rsync --progress --recursive --archive'
     
     # Grepping string occurrences recursively starting from current directory.
     # Example: cd ~/git/xonsh && greps environ
