@@ -18,12 +18,13 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     python_requires='>=3.6',
     install_requires=[
-        'xonsh',
-        'xontrib-prompt-bar',
-        'xontrib-back2dir',
-        'xontrib-sh',
-        'xontrib-pipeliner',
-        'xontrib-output-search',
+        'xonsh', # The awesome shell.
+        'xontrib-prompt-bar', # The bar prompt for xonsh shell with customizable sections and Starship support. 
+        'xontrib-back2dir', # Return to the most recently used directory when starting the xonsh shell. 
+        'xontrib-sh', # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. 
+        'xontrib-pipeliner', # Let your pipe lines flow thru the Python code in xonsh. 
+        'xontrib-output-search', # Get identifiers, names, paths, URLs and words from the previous command output and use them for the next command in xonsh. 
+        'xontrib-argcomplete', # Argcomplete support to tab completion of python and xonsh scripts in xonsh shell. 
     ],
     extras_require={
         "xxh": ["xxh-xxh"],
