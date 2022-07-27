@@ -9,7 +9,7 @@ except (IOError, OSError):
 
 setuptools.setup(
     name='xontrib-rc-awesome',
-    version='0.0.6',
+    version='0.0.7',
     license='MIT',
     author='anki-code',
     author_email='no@no.no',
@@ -25,9 +25,16 @@ setuptools.setup(
         'xontrib-pipeliner', # Let your pipe lines flow thru the Python code in xonsh. 
         'xontrib-output-search', # Get identifiers, names, paths, URLs and words from the previous command output and use them for the next command in xonsh. 
         'xontrib-argcomplete', # Argcomplete support to tab completion of python and xonsh scripts in xonsh shell. 
+        
+        # Get more xontribs:
+        #  * https://github.com/topics/xontrib
+        #  * https://github.com/xonsh/awesome-xontribs
+        #  * https://xon.sh/api/_autosummary/xontribs/xontrib.html
     ],
     extras_require={
-        "xxh": ["xxh-xxh"],
+        "xxh": [
+            "xxh-xxh" # Using xonsh wherever you go through the ssh.
+        ],
     },
     packages=['xontrib'],
     package_dir={'xontrib': 'xontrib'},
