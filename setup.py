@@ -18,7 +18,7 @@ setuptools.setup(
     long_description_content_type='text/markdown',
     python_requires='>=3.6',
     install_requires=[
-        'xonsh', # The awesome shell.
+        'xonsh[full]', # The awesome shell.
         'xontrib-prompt-bar', # The bar prompt for xonsh shell with customizable sections and Starship support. 
         'xontrib-back2dir', # Return to the most recently used directory when starting the xonsh shell. 
         'xontrib-sh', # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. 
