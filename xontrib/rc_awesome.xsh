@@ -54,7 +54,7 @@ if _xontribs:
 # Platform specific
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-from xonsh.platform import ON_LINUX, ON_DARWIN  #, ON_WINDOWS, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
+from xonsh.platform import ON_LINUX, ON_DARWIN, ON_WINDOWS #, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
 
 if ON_LINUX or ON_DARWIN:
     
@@ -90,7 +90,7 @@ if ON_LINUX or ON_DARWIN:
 
     # Copy output to current clipboard using xclip.
     # Example: echo hello | clp
-    aliases['clp'] = 'pbcopy' if ON_DARWIN else 'xclip -sel clip'    
+    aliases['clp'] = 'pbcopy' if ON_DARWIN else ('xclip -sel clip' if ON_LINUX else ('clip.exe' if ON_WINDOWS else 'echo No copy utils!'))    
 
     # SSH: Suppress "Connection close" message.
     aliases['ssh'] = 'ssh -o LogLevel=QUIET'
