@@ -54,7 +54,7 @@ if _xontribs:
 # Platform specific
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-from xonsh.platform import ON_LINUX, ON_DARWIN, ON_WINDOWS #, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
+from xonsh.platform import ON_LINUX, ON_DARWIN #, ON_WINDOWS, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
 
 if ON_LINUX or ON_DARWIN:
     
