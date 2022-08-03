@@ -58,6 +58,8 @@ from xonsh.platform import ON_LINUX, ON_DARWIN, ON_WINDOWS #, ON_WSL, ON_CYGWIN,
 
 if ON_LINUX or ON_DARWIN:
     
+    import shutil
+    
     # Globbing files with “*” or “**” will also match dotfiles, or those ‘hidden’ files whose names begin with a literal ‘.’. 
     # Note! This affects also on rsync and other tools.
     $DOTGLOB = True
@@ -66,7 +68,7 @@ if ON_LINUX or ON_DARWIN:
     $MANPAGER = "less -X"
     $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
 
-    # Flag for automatically pushing directories onto the directory stack.
+    # Flag for automatically pushing directories onto the directory stack (https://xon.sh/aliases.html#dirs).
     # It's for `mc` alias (below).
     $AUTO_PUSHD = True
 
@@ -75,14 +77,16 @@ if ON_LINUX or ON_DARWIN:
 
     # Run Midnight Commander where left and right panel will be the current and the previous directory.
     # Required: $AUTO_PUSHD = True
-    aliases['mc'] = "mc @($PWD if not $args else $args) @($OLDPWD if not $args else $PWD)"
+    if shutil.which('mc'):
+        aliases['mc'] = "mc @($PWD if not $args else $args) @($OLDPWD if not $args else $PWD)"
 
     # Make directory and cd into it.
     # Example: md /tmp/my/awesome/dir/will/be/here
     aliases['md'] = 'mkdir -p $arg0 && cd $arg0'
         
     # Using rsync instead of cp to get the progress and speed of copying.
-    aliases['cp'] = 'rsync --progress --recursive --archive'
+    if shutil.which('rsync'):
+        aliases['cp'] = 'rsync --progress --recursive --archive'
     
     # Grepping string occurrences recursively starting from current directory.
     # Example: cd ~/git/xonsh && greps environ
@@ -90,7 +94,12 @@ if ON_LINUX or ON_DARWIN:
 
     # Copy output to current clipboard using xclip.
     # Example: echo hello | clp
-    aliases['clp'] = 'pbcopy' if ON_DARWIN else ('xclip -sel clip' if ON_LINUX else ('clip.exe' if ON_WINDOWS else 'echo No copy utils!'))    
+    if shutil.which('pbcopy'):  # DARWIN
+        aliases['clp'] = 'pbcopy'
+    elif shutil.which('xclip'):  # LINUX
+        aliases['clp'] = 'xclip -sel clip'
+    elif shutil.which('clip.exe'):  # WINDOWS
+        aliases['clp'] = 'clip.exe'
 
     # SSH: Suppress "Connection close" message.
     aliases['ssh'] = 'ssh -o LogLevel=QUIET'
@@ -116,3 +125,10 @@ if ON_LINUX or ON_DARWIN:
         if 'Ubuntu' in $(lsb_release --id --release --short).strip():
             xontrib load apt_tabcomplete
         
+        
+    # For the experienced xonsh users
+    # Suppress line "xonsh: For full traceback set: $XONSH_SHOW_TRACEBACK = True" 
+    # in case of exceptions or wrong command.
+    $XONSH_TRACEBACK_LOGFILE = '/dev/null'
+    
+    
