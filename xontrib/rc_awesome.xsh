@@ -7,7 +7,7 @@ If you like the idea click ⭐ on the repo and stay tuned.
 # Cross platform
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-if __xonsh__.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE != 'prompt_toolkit':
+if __xonsh__.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none']:
     printx("{YELLOW}xontrib-rc-awesome: We recommend to use prompt_toolkit shell by installing `xonsh[full]` package.{RESET}")
 
 # First of all replace `$` to `@` in the prompt to not to be confused with another shell.
