@@ -49,6 +49,26 @@ _xontribs = [
 if _xontribs:
     xontrib load @(_xontribs)
 
+    
+#
+# Binding the hotkeys - https://xon.sh/tutorial_ptk.html
+#
+    
+from prompt_toolkit.keys import Keys
+
+@events.on_ptk_create
+def custom_keybindings(bindings, **kw):
+
+    # Press F1 and get the list of files
+    @bindings.add(Keys.F1)
+    def run_ls(event):
+        ls -l
+        event.cli.renderer.erase()
+    
+    # Press F3 to insert the grep command
+    @bindings.add(Keys.F3)
+    def say_hi(event):
+        event.current_buffer.insert_text('| grep -i ')
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Platform specific
