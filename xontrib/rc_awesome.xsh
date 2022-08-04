@@ -126,6 +126,7 @@ if ON_LINUX or ON_DARWIN:
 
     #
     # Binding the hotkeys - https://xon.sh/tutorial_ptk.html
+    # List of keys - https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/src/prompt_toolkit/keys.py
     #
 
     from prompt_toolkit.keys import Keys
