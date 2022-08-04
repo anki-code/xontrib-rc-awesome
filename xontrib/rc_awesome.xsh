@@ -129,6 +129,6 @@ if ON_LINUX or ON_DARWIN:
     # For the experienced xonsh users
     # Suppress line "xonsh: For full traceback set: $XONSH_SHOW_TRACEBACK = True" 
     # in case of exceptions or wrong command.
-    $XONSH_TRACEBACK_LOGFILE = '/dev/null'
+    $XONSH_SHOW_TRACEBACK = False
     
     
