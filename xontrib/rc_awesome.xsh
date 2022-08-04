@@ -154,9 +154,13 @@ if ON_LINUX or ON_DARWIN:
 # Final
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------        
         
-# For the experienced xonsh users
+# For the experienced users
+
 # Suppress line "xonsh: For full traceback set: $XONSH_SHOW_TRACEBACK = True" 
 # in case of exceptions or wrong command.
 $XONSH_SHOW_TRACEBACK = False
+
+# Suppress line "Did you mean one of the following?"
+$SUGGEST_COMMANDS = False
     
    
