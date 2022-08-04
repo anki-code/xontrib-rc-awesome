@@ -125,10 +125,14 @@ if ON_LINUX or ON_DARWIN:
         if 'Ubuntu' in $(lsb_release --id --release --short).strip():
             xontrib load apt_tabcomplete
         
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Final
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------        
         
-    # For the experienced xonsh users
-    # Suppress line "xonsh: For full traceback set: $XONSH_SHOW_TRACEBACK = True" 
-    # in case of exceptions or wrong command.
-    $XONSH_SHOW_TRACEBACK = False
+# For the experienced xonsh users
+# Suppress line "xonsh: For full traceback set: $XONSH_SHOW_TRACEBACK = True" 
+# in case of exceptions or wrong command.
+$XONSH_SHOW_TRACEBACK = False
     
-    
+   
