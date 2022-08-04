@@ -143,7 +143,7 @@ if ON_LINUX or ON_DARWIN:
         # Press F3 to insert the grep command
         @bindings.add(Keys.F3)
         def say_hi(event):
-            event.current_buffer.insert_text('| grep -i ')            
+            event.current_buffer.insert_text(' | grep -i ')            
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Final
