@@ -120,15 +120,17 @@ if ON_LINUX or ON_DARWIN:
     if _xontribs:
         xontrib load @(_xontribs)
 
+        
     if $(which lsb_release):
         if 'Ubuntu' in $(lsb_release --id --release --short).strip():
             xontrib load apt_tabcomplete
 
+            
     #
     # Binding the hotkeys - https://xon.sh/tutorial_ptk.html
     # List of keys - https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/src/prompt_toolkit/keys.py
     #
-
+    
     from prompt_toolkit.keys import Keys
 
     @events.on_ptk_create
