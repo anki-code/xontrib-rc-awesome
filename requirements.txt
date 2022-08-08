@@ -1,1 +1,8 @@
 xonsh
+xontrib-prompt-bar
+xontrib-back2dir
+xontrib-sh
+xontrib-pipeliner
+xontrib-output-search
+xontrib-argcomplete
+xxh-xxh
