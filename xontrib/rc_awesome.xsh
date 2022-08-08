@@ -4,6 +4,13 @@ If you like the idea click ⭐ on the repo and stay tuned.
 """ 
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Imports
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+import shutil
+
+
+# -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Cross platform
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -59,9 +66,7 @@ if _xontribs:
 from xonsh.platform import ON_LINUX, ON_DARWIN #, ON_WINDOWS, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
 
 if ON_LINUX or ON_DARWIN:
-    
-    import shutil
-    
+       
     # Globbing files with “*” or “**” will also match dotfiles, or those ‘hidden’ files whose names begin with a literal ‘.’. 
     # Note! This affects also on rsync and other tools.
     $DOTGLOB = True
@@ -94,7 +99,7 @@ if ON_LINUX or ON_DARWIN:
     # Example: cd ~/git/xonsh && greps environ
     aliases['greps'] = 'grep -ri'
 
-    # Copy output to current clipboard using xclip.
+    # Copy output to current clipboard using xclip. This snippet could be improved and packed into the xontrib.
     # Example: echo hello | clp
     if shutil.which('pbcopy'):  # DARWIN
         aliases['clp'] = 'pbcopy'
@@ -108,6 +113,21 @@ if ON_LINUX or ON_DARWIN:
 
     # Run http server in the current directory.
     aliases['http-here'] = 'python3 -m http.server'
+    
+    # Universal pm aliases. This snippet could be improved and packed into the xontrib.
+    if shutil.which('pacman'):
+        # Aliases from https://devhints.io/pacman
+        aliases['pm-install'] = 'sudo pacman -Syu'
+        aliases['pm-uninstall'] = 'sudo pacman -Rsc'
+        aliases['pm-search'] = 'sudo pacman -Ss'
+        aliases['pm-upgrade-everything'] = 'sudo pacman -Syu'
+        aliases['pm-package-info'] = 'sudo pacman -Qii'
+        aliases['pm-package-unneeded-list'] = 'sudo pacman -Qdt'
+        aliases['pm-package-unneeded-uninstall'] = 'sudo pacman -Rns @($(pacman -Qdtq).splitlines())'
+     elif shutil.which('apt'):
+        aliases['pm-install'] = 'sudo apt install '
+        aliases['pm-uninstall'] = 'sudo apt uninstall'
+        aliases['pm-search'] = 'sudo apt search'
     
     
     #
