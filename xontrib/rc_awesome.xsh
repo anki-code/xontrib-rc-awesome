@@ -75,7 +75,7 @@ if ON_LINUX or ON_DARWIN:
     $MANPAGER = "less -X"
     $LESS = "--ignore-case --quit-if-one-screen --quit-on-intr FRXQ"
 
-    # Flag for automatically pushing directories onto the directory stack (https://xon.sh/aliases.html#dirs).
+    # Flag for automatically pushing directories onto the directory stack i.e. `dirs -p` (https://xon.sh/aliases.html#dirs).
     # It's for `mc` alias (below).
     $AUTO_PUSHD = True
 
