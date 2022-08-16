@@ -124,7 +124,7 @@ if ON_LINUX or ON_DARWIN:
         aliases['pm-package-info'] = 'sudo pacman -Qii'
         aliases['pm-package-unneeded-list'] = 'sudo pacman -Qdt'
         aliases['pm-package-unneeded-uninstall'] = 'sudo pacman -Rns @($(pacman -Qdtq).splitlines())'
-     elif shutil.which('apt'):
+    elif shutil.which('apt'):
         aliases['pm-install'] = 'sudo apt install'
         aliases['pm-uninstall'] = 'sudo apt uninstall'
         aliases['pm-search'] = 'sudo apt search'
