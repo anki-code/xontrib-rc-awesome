@@ -99,7 +99,7 @@ if ON_LINUX or ON_DARWIN:
     # Example: cd ~/git/xonsh && greps environ
     aliases['greps'] = 'grep -ri'
 
-    # Copy output to current clipboard using xclip. This snippet could be improved and packed into the xontrib.
+    # Copy output to current clipboard using xclip. This snippet could be improved and packed into the xontrib. Start from https://github.com/xonsh/xontrib-template
     # Example: echo hello | clp
     if shutil.which('pbcopy'):  # DARWIN
         aliases['clp'] = 'pbcopy'
@@ -114,7 +114,7 @@ if ON_LINUX or ON_DARWIN:
     # Run http server in the current directory.
     aliases['http-here'] = 'python3 -m http.server'
     
-    # Universal pm aliases. This snippet could be improved and packed into the xontrib.
+    # Universal pm aliases. This snippet could be improved and packed into the xontrib. Start from https://github.com/xonsh/xontrib-template
     if shutil.which('pacman'):
         # Aliases from https://devhints.io/pacman
         aliases['pm-install'] = 'sudo pacman -Syu'
