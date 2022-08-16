@@ -144,7 +144,7 @@ if ON_LINUX or ON_DARWIN:
         xontrib load @(_xontribs)
 
         
-    if $(which lsb_release):
+    if shutil.which('lsb_release'):
         if 'Ubuntu' in $(lsb_release --id --release --short).strip():
             xontrib load apt_tabcomplete
 
