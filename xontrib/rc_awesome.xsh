@@ -117,7 +117,7 @@ if ON_LINUX or ON_DARWIN:
     # Universal pm aliases. This snippet could be improved and packed into the xontrib. Start from https://github.com/xonsh/xontrib-template
     if shutil.which('pacman'):
         # Aliases from https://devhints.io/pacman
-        aliases['pm-install'] = 'sudo pacman -Syu'
+        aliases['pm-install'] = 'sudo pacman -Sy'
         aliases['pm-uninstall'] = 'sudo pacman -Rsc'
         aliases['pm-search'] = 'sudo pacman -Ss'
         aliases['pm-upgrade-everything'] = 'sudo pacman -Syu'
