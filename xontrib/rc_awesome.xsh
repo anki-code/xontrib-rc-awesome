@@ -81,8 +81,8 @@ if ON_LINUX or ON_DARWIN:
 
     # Add default bin paths
     for p in [p'/home/linuxbrew/.linuxbrew/bin', fp'/home/{$USER}/.local/bin', p'/opt/homebrew/opt/coreutils/libexec/gnubin']:
-    if p.exists():
-        $PATH.append(str(p))
+        if p.exists():
+            $PATH.append(str(p))
     
     
     # List all files: sorted, with colors, directories will be first (Midnight Commander style).
