@@ -79,6 +79,12 @@ if ON_LINUX or ON_DARWIN:
     # It's for `mc` alias (below).
     $AUTO_PUSHD = True
 
+    # Add default bin paths
+    for p in [p'/home/linuxbrew/.linuxbrew/bin', fp'/home/{$USER}/.local/bin', p'/opt/homebrew/opt/coreutils/libexec/gnubin']:
+    if p.exists():
+        $PATH.append(str(p))
+    
+    
     # List all files: sorted, with colors, directories will be first (Midnight Commander style).
     aliases['ll'] = "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)"
 
@@ -113,6 +119,7 @@ if ON_LINUX or ON_DARWIN:
 
     # Run http server in the current directory.
     aliases['http-here'] = 'python3 -m http.server'
+    
     
     # Universal pm aliases. This snippet could be improved and packed into the xontrib. Start from https://github.com/xonsh/xontrib-template
     if shutil.which('pacman'):
