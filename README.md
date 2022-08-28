@@ -35,7 +35,7 @@ xonsh
 
 #### Create your own installable RC based on the awesome xonsh RC
 
-1. Fork this repository or use it as [template](https://docs.github.com/articles/creating-a-repository-from-a-template/)
+1. Fork this repository
 2. Rename the repository to `xontrib-rc-yourname`
 3. Change the name [in setup.py](https://github.com/anki-code/xontrib-rc-awesome/blob/e21370c1155262b8e25bd354cb4d4f9f15945384/setup.py#L11)
 4. Change the name of `xontrib/rc_awesome.xsh` to `xontrib/rc_yourname.xsh`
