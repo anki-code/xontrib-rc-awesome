@@ -159,6 +159,7 @@ if ON_LINUX or ON_DARWIN:
     # The alias to pull history from another SQLite sessions 
             
     import time
+    $XONSH_HISTORY_SQLITE_PULL_TIME = __xonsh__.history[0].ts[0] if __xonsh__.history else time.time()
     def _history_pull():
         
         if $XONSH_HISTORY_BACKEND != 'sqlite':
@@ -168,9 +169,6 @@ if ON_LINUX or ON_DARWIN:
         if not shutil.which('sqlite3'):
             printx('{RED}Install sqlite3.{RESET}')
             return -1
-
-        if not __xonsh__.env.get('XONSH_HISTORY_SQLITE_PULL_TIME'):
-            $XONSH_HISTORY_SQLITE_PULL_TIME = __xonsh__.history[0].ts[0] if __xonsh__.history else time.time()
 
         sessionid = __xonsh__.history.info()['sessionid']
         sql_records = f"""
