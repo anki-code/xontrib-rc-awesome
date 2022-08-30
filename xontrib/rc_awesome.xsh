@@ -156,8 +156,9 @@ if ON_LINUX or ON_DARWIN:
             xontrib load apt_tabcomplete
 
             
-    # The alias to pull history from another SQLite sessions 
-            
+    #        
+    # The command to pull history from other SQLite history backend sessions. 
+    #        
     import time
     $XONSH_HISTORY_SQLITE_PULL_TIME = __xonsh__.history[0].ts[0] if __xonsh__.history else time.time()
     def _history_pull():
@@ -171,23 +172,15 @@ if ON_LINUX or ON_DARWIN:
             return -1
 
         sessionid = __xonsh__.history.info()['sessionid']
-        sql_records = f"""
-            SELECT inp 
-            FROM xonsh_history 
-            WHERE 
-                tsb > '{$XONSH_HISTORY_SQLITE_PULL_TIME}' 
-                AND sessionid != '{sessionid}'
-            ORDER BY tsb
-        """
-
+        sql_records = f"SELECT inp FROM xonsh_history WHERE tsb > '{$XONSH_HISTORY_SQLITE_PULL_TIME}' AND sessionid != '{sessionid}' ORDER BY tsb"
         rows = $(sqlite3 $XONSH_HISTORY_FILE @(sql_records)).splitlines()
         i = 0
         for r in rows:
             __xonsh__.shell.shell.prompter.history.append_string(r)
             i += 1
-
+            
         $XONSH_HISTORY_SQLITE_PULL_TIME = time.time()
-
+        
         if i > 0:
             printx(f'{{GREEN}}Added {i} records!{{RESET}}')
         else:
@@ -195,7 +188,8 @@ if ON_LINUX or ON_DARWIN:
 
     aliases['history-pull'] = _history_pull
     del _history_pull
-            
+    
+    
     #
     # Binding the hotkeys - https://xon.sh/tutorial_ptk.html
     # List of keys - https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/src/prompt_toolkit/keys.py
