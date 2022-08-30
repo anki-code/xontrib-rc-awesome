@@ -7,7 +7,7 @@ If you like the idea click ⭐ on the repo and stay tuned.
 # Imports
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-import shutil
+import shutil, time
 
 
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -159,14 +159,14 @@ if ON_LINUX or ON_DARWIN:
     #        
     # The command to pull history from other SQLite history backend sessions. 
     #        
-    import time
+    
     $XONSH_HISTORY_SQLITE_PULL_TIME = __xonsh__.history[0].ts[0] if __xonsh__.history else time.time()
     def _history_pull():
-        
+
         if $XONSH_HISTORY_BACKEND != 'sqlite':
             printx('{RED}To pull history use SQLite history backend.{RESET}')
             return -1
-        
+
         if not shutil.which('sqlite3'):
             printx('{RED}Install sqlite3.{RESET}')
             return -1
@@ -177,10 +177,11 @@ if ON_LINUX or ON_DARWIN:
         i = 0
         for r in rows:
             __xonsh__.shell.shell.prompter.history.append_string(r)
+            print(r)
             i += 1
-            
+
         $XONSH_HISTORY_SQLITE_PULL_TIME = time.time()
-        
+
         if i > 0:
             printx(f'{{GREEN}}Added {i} records!{{RESET}}')
         else:
