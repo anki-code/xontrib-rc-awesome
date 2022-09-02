@@ -156,6 +156,11 @@ if ON_LINUX or ON_DARWIN:
             xontrib load apt_tabcomplete
 
             
+    # History search alias
+    # You can use it ordinarily: `history-search "cd /"`
+    # Or as a macro call: `history-search! cd /`
+    aliases['history-search'] = """sqlite3 $XONSH_HISTORY_FILE @("SELECT inp FROM xonsh_history WHERE inp LIKE '%" + $arg0 + "%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");"""
+
     #        
     # The command to pull history from other SQLite history backend sessions. 
     #        
