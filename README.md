@@ -8,7 +8,7 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
 
 ### Use cases
 
-#### Create your own installable RC based on the awesome xonsh RC
+#### Create your own pip-installable RC based on the awesome xonsh RC
 
 1. Fork this repository
 2. Rename the repository to `xontrib-rc-yourname`
