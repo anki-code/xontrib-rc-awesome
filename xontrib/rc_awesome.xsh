@@ -3,6 +3,13 @@ Awesome snippets code to make .xonshrc better - https://github.com/anki-code/xon
 If you like the idea click ⭐ on the repo and stay tuned. 
 """ 
 
+#
+# Temporary fixes
+#
+
+# https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1696
+__import__('warnings').filterwarnings('ignore', 'There is no current event loop', DeprecationWarning, 'prompt_toolkit.eventloop.utils')
+
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Imports
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------
