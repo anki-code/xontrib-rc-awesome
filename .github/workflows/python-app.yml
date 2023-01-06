@@ -26,7 +26,7 @@ jobs:
         pip install 'xonsh[full]'
     - name: Test xonshrc
       run: |
-        pip install .
+        pip install --use-pep517 .
         filename=$(basename -- $(ls xontrib/*.*))
         xontrib_name="${filename%.*}"
         r=$(xonsh -c "xontrib load $xontrib_name" 2>&1)
