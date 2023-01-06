@@ -22,6 +22,7 @@ jobs:
         python-version: 3
     - name: Install dependencies
       run: |
+        echo $(python -V)
         python -m pip install --upgrade pip
         pip install 'xonsh[full]'
     - name: Install awesome RC
@@ -35,5 +36,5 @@ jobs:
         echo Xontrib name: $xontrib_name
         echo Testing...
         r=$(xonsh -c "xontrib load $xontrib_name" 2>&1)
-        echo $r
+        echo Test output: $r
         [ "$r" == "" ] && exit 0 || exit 1
