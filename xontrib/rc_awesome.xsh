@@ -1,5 +1,6 @@
 """
-Awesome snippets code to make .xonshrc better - https://github.com/anki-code/xontrib-rc-awesome
+Awesome snippets of code to make your awesome xonsh RC.
+Source: https://github.com/anki-code/xontrib-rc-awesome
 If you like the idea click ⭐ on the repo and stay tuned. 
 """ 
 
