@@ -3,23 +3,22 @@ Awesome snippets code to make .xonshrc better - https://github.com/anki-code/xon
 If you like the idea click ⭐ on the repo and stay tuned. 
 """ 
 
-#
-# Temporary fixes
-#
+# ------------------------------------------------------------------------------
+# Temporary fixes of known issues
+# ------------------------------------------------------------------------------
 
 # https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1696
 __import__('warnings').filterwarnings('ignore', 'There is no current event loop', DeprecationWarning, 'prompt_toolkit.eventloop.utils')
 
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Imports
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 import shutil, time
 
-
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Cross platform
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 if __xonsh__.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
     printx("{YELLOW}xontrib-rc-awesome: We recommend to use prompt_toolkit shell by installing `xonsh[full]` package.{RESET}")
@@ -46,6 +45,12 @@ $HISTCONTROL='ignoredups'
 # Remove front dot in multiline input to make the code copy-pastable.
 $MULTILINE_PROMPT=' '
 
+# Enable mouse support in the prompt_toolkit shell.
+# This allows clicking for positioning the cursor or selecting a completion.
+# In some terminals however, this disables the ability to scroll back through the history of the terminal.
+# To scroll on macOS in iTerm2 press Option key and scroll on touchpad.
+$MOUSE_SUPPORT = True
+
 
 # cd-ing shortcuts.
 aliases['-'] = 'cd -'
@@ -66,9 +71,9 @@ _xontribs = [
 if _xontribs:
     xontrib load @(_xontribs)
 
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Platform specific
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 
 from xonsh.platform import ON_LINUX, ON_DARWIN #, ON_WINDOWS, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
 
@@ -151,9 +156,9 @@ if ON_LINUX or ON_DARWIN:
     #
     _xontribs = [
         'back2dir',          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
-        'prompt_bar',       # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
-        'pipeliner',        # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
-        'sh',               # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. URL: https://github.com/anki-code/xontrib-sh
+        'prompt_bar',        # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
+        'pipeliner',         # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
+        'sh',                # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. URL: https://github.com/anki-code/xontrib-sh
         #'output_search',    # Get words from the previous command output for the next command. URL: https://github.com/tokenizer/xontrib-output-search
     ]
     if _xontribs:
@@ -234,9 +239,9 @@ if ON_LINUX or ON_DARWIN:
     xonsh.pretty.for_type(type(1), lambda int, printer, cycle: printer.text(f'{int:,}'))
     xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{float:,}'))
           
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Final
-# -------------------------------------------------------------------------------------------------------------------------------------------------------------        
+# ------------------------------------------------------------------------------
         
 # For the experienced users
 
