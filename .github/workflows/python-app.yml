@@ -35,6 +35,7 @@ jobs:
         xontrib_name="${filename%.*}"
         echo Xontrib name: $xontrib_name
         echo Testing...
+        export XONSH_SHOW_TRACEBACK=True
         xonsh -c "xontrib load $xontrib_name"
         #r=$(xonsh -c "xontrib load $xontrib_name" 2>&1 || true)
         #echo Test output: $r
