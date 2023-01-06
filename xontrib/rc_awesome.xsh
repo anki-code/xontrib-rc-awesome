@@ -13,6 +13,7 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 
 # ------------------------------------------------------------------------------
 # Imports
+# It's a good practice to keep xonsh session cleano and add _ alias for import
 # ------------------------------------------------------------------------------
 
 import shutil as _shutil
@@ -66,6 +67,12 @@ $AUTO_CD = True
 
 #
 # Xontribs - https://github.com/topics/xontrib
+#
+# Note! Because of xonsh read ~/.xonshrc on every start and can be executed from any virtual environment 
+# with the different set of installed packages it's a highly recommended approach to check 
+# the list of the xontribs before loading to avoid errors.
+#
+# Read: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
 #
 from xonsh.xontribs import get_xontribs
 _xontribs_installed = set(get_xontribs().keys())
@@ -157,6 +164,12 @@ if ON_LINUX or ON_DARWIN:
     
     #
     # Xontribs - https://github.com/topics/xontrib
+    #
+    # Note! Because of xonsh read ~/.xonshrc on every start and can be executed from any virtual environment 
+    # with the different set of installed packages it's a highly recommended approach to check 
+    # the list of the xontribs before loading to avoid errors.
+    #
+    # Read: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
     #
     _xontribs_to_load = (
         'back2dir',          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
