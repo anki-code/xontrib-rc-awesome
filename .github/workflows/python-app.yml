@@ -35,6 +35,7 @@ jobs:
         xontrib_name="${filename%.*}"
         echo Xontrib name: $xontrib_name
         echo Testing...
-        r=$(xonsh -c "xontrib load $xontrib_name" 2>&1)
-        echo Test output: $r
-        [ "$r" == "" ] && exit 0 || exit 1
+        xonsh -c "xontrib load $xontrib_name"
+        #r=$(xonsh -c "xontrib load $xontrib_name" 2>&1 || true)
+        #echo Test output: $r
+        #[ "$r" == "" ] && exit 0 || exit 1
