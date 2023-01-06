@@ -166,7 +166,7 @@ if ON_LINUX or ON_DARWIN:
     )
     xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
     
-    if false: # Example of how to check the operating system
+    if False: # Example of how to check the operating system
         if ON_LINUX and 'apt_tabcomplete' in _xontribs_installed and shutil.which('lsb_release'):
             if 'Ubuntu' in $(lsb_release --id --release --short).strip():
                 xontrib load apt_tabcomplete
