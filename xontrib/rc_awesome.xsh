@@ -15,7 +15,8 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # Imports
 # ------------------------------------------------------------------------------
 
-import shutil, time
+import shutil as _shutil
+import time as _time
 
 # ------------------------------------------------------------------------------
 # Cross platform
@@ -105,7 +106,7 @@ if ON_LINUX or ON_DARWIN:
 
     # Run Midnight Commander where left and right panel will be the current and the previous directory.
     # Required: $AUTO_PUSHD = True
-    if shutil.which('mc'):
+    if _shutil.which('mc'):
         aliases['mc'] = "mc @($PWD if not $args else $args) @($OLDPWD if not $args else $PWD)"
 
     # Make directory and cd into it.
@@ -113,7 +114,7 @@ if ON_LINUX or ON_DARWIN:
     aliases['md'] = 'mkdir -p $arg0 && cd $arg0'
         
     # Using rsync instead of cp to get the progress and speed of copying.
-    if shutil.which('rsync'):
+    if _shutil.which('rsync'):
         aliases['cp'] = 'rsync --progress --recursive --archive'
     
     # Grepping string occurrences recursively starting from current directory.
@@ -122,11 +123,11 @@ if ON_LINUX or ON_DARWIN:
 
     # Copy output to current clipboard using xclip. This snippet could be improved and packed into the xontrib. Start from https://github.com/xonsh/xontrib-template
     # Example: echo hello | clp
-    if shutil.which('pbcopy'):  # DARWIN
+    if _shutil.which('pbcopy'):  # DARWIN
         aliases['clp'] = 'pbcopy'
-    elif shutil.which('xclip'):  # LINUX
+    elif _shutil.which('xclip'):  # LINUX
         aliases['clp'] = 'xclip -sel clip'
-    elif shutil.which('clip.exe'):  # WINDOWS
+    elif _shutil.which('clip.exe'):  # WINDOWS
         aliases['clp'] = 'clip.exe'
 
     # SSH: Suppress "Connection close" message.
@@ -137,7 +138,7 @@ if ON_LINUX or ON_DARWIN:
     
     
     # Universal pm aliases. This snippet could be improved and packed into the xontrib. Start from https://github.com/xonsh/xontrib-template
-    if shutil.which('pacman'):
+    if _shutil.which('pacman'):
         # Aliases from https://devhints.io/pacman
         aliases['pm'] = 'sudo pacman'
         aliases['pm-install'] = 'sudo pacman -Sy'
@@ -147,7 +148,7 @@ if ON_LINUX or ON_DARWIN:
         aliases['pm-package-info'] = 'sudo pacman -Qii'
         aliases['pm-package-unneeded-list'] = 'sudo pacman -Qdt'
         aliases['pm-package-unneeded-uninstall'] = 'sudo pacman -Rns @($(pacman -Qdtq).splitlines())'
-    elif shutil.which('apt'):
+    elif _shutil.which('apt'):
         aliases['pm'] = 'sudo apt'
         aliases['pm-install'] = 'sudo apt install'
         aliases['pm-uninstall'] = 'sudo apt uninstall'
@@ -181,12 +182,16 @@ if ON_LINUX or ON_DARWIN:
     # The command to pull history from other SQLite history backend sessions. 
     #        
     
-    $XONSH_HISTORY_SQLITE_PULL_TIME = __xonsh__.history[0].ts[0] if __xonsh__.history else time.time()
+    try:
+        $XONSH_HISTORY_SQLITE_PULL_TIME = __xonsh__.history[0].ts[0]
+    except:
+        $XONSH_HISTORY_SQLITE_PULL_TIME = _time.time()
+        
     def _history_pull():
         if $XONSH_HISTORY_BACKEND != 'sqlite':
             printx('{RED}To pull history use SQLite history backend.{RESET}')
             return -1
-        if not shutil.which('sqlite3'):
+        if not _shutil.which('sqlite3'):
             printx('{RED}Install sqlite3.{RESET}')
             return -1
 
@@ -199,7 +204,7 @@ if ON_LINUX or ON_DARWIN:
             print(r)
             i += 1
 
-        $XONSH_HISTORY_SQLITE_PULL_TIME = time.time()
+        $XONSH_HISTORY_SQLITE_PULL_TIME = _time.time()
 
         if i > 0:
             printx(f'{{GREEN}}Added {i} records!{{RESET}}')
