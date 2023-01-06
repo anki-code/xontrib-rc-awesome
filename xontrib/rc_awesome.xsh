@@ -66,11 +66,13 @@ $AUTO_CD = True
 #
 # Xontribs - https://github.com/topics/xontrib
 #
-_xontribs = [
-    'whole_word_jumping', # Jumping across whole words (non-whitespace) with Ctrl + Left/Right and Alt + Left/Right.
-]
-if _xontribs:
-    xontrib load @(_xontribs)
+from xonsh.xontribs import get_xontribs
+_xontribs_installed = set(get_xontribs().keys())
+
+_xontribs_to_load = (
+    'whole_word_jumping', # Jumping across whole words (non-whitespace) with Ctrl+Left/Right and Alt+Left/Right on Linux or Option+Left/Right on macOS.
+)
+xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
 
 # ------------------------------------------------------------------------------
 # Platform specific
@@ -155,20 +157,19 @@ if ON_LINUX or ON_DARWIN:
     #
     # Xontribs - https://github.com/topics/xontrib
     #
-    _xontribs = [
+    _xontribs_to_load = (
         'back2dir',          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
         'prompt_bar',        # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
         'pipeliner',         # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
         'sh',                # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. URL: https://github.com/anki-code/xontrib-sh
         #'output_search',    # Get words from the previous command output for the next command. URL: https://github.com/tokenizer/xontrib-output-search
-    ]
-    if _xontribs:
-        xontrib load @(_xontribs)
-
-        
-    if shutil.which('lsb_release'):
-        if 'Ubuntu' in $(lsb_release --id --release --short).strip():
-            xontrib load apt_tabcomplete
+    )
+    xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
+    
+    if false: # Example of how to check the operating system
+        if 'apt_tabcomplete' in _xontribs_installed and shutil.which('lsb_release'):
+            if 'Ubuntu' in $(lsb_release --id --release --short).strip():
+                xontrib load apt_tabcomplete
 
             
     # History search alias
