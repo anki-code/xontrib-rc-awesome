@@ -73,6 +73,7 @@ $AUTO_CD = True
 # the list of the xontribs before loading to avoid errors.
 #
 # Read: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
+# Vote to simplify loading: https://github.com/xonsh/xonsh/issues/5023
 #
 from xonsh.xontribs import get_xontribs
 _xontribs_installed = set(get_xontribs().keys())
@@ -170,6 +171,7 @@ if ON_LINUX or ON_DARWIN:
     # the list of the xontribs before loading to avoid errors.
     #
     # Read: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
+    # Vote to simplify loading: https://github.com/xonsh/xonsh/issues/5023
     #
     _xontribs_to_load = (
         'back2dir',          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
