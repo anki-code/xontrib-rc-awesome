@@ -42,14 +42,14 @@ $XONSH_HISTORY_BACKEND = 'sqlite'
 #   The minus of `erasedups` is that the history of every session becomes unrepeatable 
 #   because it will have a lack of the command you repeat in another session.
 # Docs: https://xonsh.github.io/envvars.html#histcontrol
-$HISTCONTROL='ignoredups'
+$HISTCONTROL = 'ignoredups'
 
 # Do not write the command to the history if it was ended by `###`
-$XONSH_HISTORY_IGNORE_REGEX='.*(\\#\\#\\#\\s*)$'
+$XONSH_HISTORY_IGNORE_REGEX = '.*(\\#\\#\\#\\s*)$'
 
 
 # Remove front dot in multiline input to make the code copy-pastable.
-$MULTILINE_PROMPT=' '
+$MULTILINE_PROMPT = ' '
 
 # Enable mouse support in the prompt_toolkit shell.
 # This allows clicking for positioning the cursor or selecting a completion.
