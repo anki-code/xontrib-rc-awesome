@@ -44,6 +44,9 @@ $XONSH_HISTORY_BACKEND = 'sqlite'
 # Docs: https://xonsh.github.io/envvars.html#histcontrol
 $HISTCONTROL='ignoredups'
 
+# Do not write the command to the history if it was ended by `###`
+$XONSH_HISTORY_IGNORE_REGEX='.*(\\#\\#\\#\\s*)$'
+
 
 # Remove front dot in multiline input to make the code copy-pastable.
 $MULTILINE_PROMPT=' '
