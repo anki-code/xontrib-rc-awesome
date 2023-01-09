@@ -44,6 +44,7 @@ $XONSH_HISTORY_BACKEND = 'sqlite'
 # Docs: https://xonsh.github.io/envvars.html#histcontrol
 $HISTCONTROL = 'ignoredups'
 
+# Set regex to avoid saving unwanted commands
 # Do not write the command to the history if it was ended by `###`
 $XONSH_HISTORY_IGNORE_REGEX = '.*(\\#\\#\\#\\s*)$'
 
