@@ -32,6 +32,9 @@ if __xonsh__.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYP
 #  - https://github.com/xonsh/xonsh/issues/4152#issue-823993141
 $PROMPT_FIELDS['prompt_end'] = '@'
 
+# Add xontrib-cmd-durations to right prompt
+$RIGHT_PROMPT = '{long_cmd_duration}'
+
 # The SQLite history backend saves command immediately 
 # unlike JSON backend that save the commands at the end of the session.
 $XONSH_HISTORY_BACKEND = 'sqlite'
@@ -84,6 +87,10 @@ _xontribs_installed = set(get_xontribs().keys())
 
 _xontribs_to_load = (
     'whole_word_jumping', # Jumping across whole words (non-whitespace) with Ctrl+Left/Right and Alt+Left/Right on Linux or Option+Left/Right on macOS.
+    'back2dir',          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
+    'prompt_bar',        # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
+    'pipeliner',         # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
+    'cmd_done',          # Show long running commands durations in prompt with option to send notification when terminal is not focused. URL: https://github.com/jnoortheen/xontrib-cmd-durations
 )
 xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
 
@@ -178,9 +185,6 @@ if ON_LINUX or ON_DARWIN:
     # Vote to simplify loading: https://github.com/xonsh/xonsh/issues/5023
     #
     _xontribs_to_load = (
-        'back2dir',          # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
-        'prompt_bar',        # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
-        'pipeliner',         # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
         'sh',                # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. URL: https://github.com/anki-code/xontrib-sh
         #'output_search',    # Get words from the previous command output for the next command. URL: https://github.com/tokenizer/xontrib-output-search
     )
