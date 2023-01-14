@@ -82,6 +82,8 @@ $AUTO_CD = True
 # Read: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
 # Vote to simplify loading: https://github.com/xonsh/xonsh/issues/5023
 #
+# TODO: reduce this code after merging https://github.com/xonsh/xonsh/pull/5028
+#
 from xonsh.xontribs import get_xontribs
 _xontribs_installed = set(get_xontribs().keys())
 
