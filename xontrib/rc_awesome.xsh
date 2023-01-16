@@ -93,6 +93,7 @@ _xontribs_to_load = (
     'prompt_bar',        # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
     'pipeliner',         # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
     'cmd_done',          # Show long running commands durations in prompt with option to send notification when terminal is not focused. URL: https://github.com/jnoortheen/xontrib-cmd-durations
+    'jedi',              # Jedi - an awesome autocompletion, static analysis and refactoring library for Python. URL: https://github.com/xonsh/xontrib-jedi
 )
 xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
 
