@@ -157,6 +157,18 @@ if ON_LINUX or ON_DARWIN:
 
     # Run http server in the current directory.
     aliases['http-here'] = 'python3 -m http.server'
+
+    
+    # `scr` alias to run command in screen session
+    def _screen_run(args):
+        from datetime import datetime as _datetime
+        screen_name = "s" + _datetime.now().strftime("%S%M%H")  # This screen name is more unique to run `screen -r <name>`
+        screen_cmd = " ".join(args)
+        print('Start session', screen_name, ':', screen_cmd)
+        screen -S @(screen_name)  xonsh -c @(screen_cmd + '; echo Done; exec xonsh')
+        screen -ls
+    aliases['screen-run'] = _screen_run
+    del _screen_run
     
     
     # Universal pm aliases. This snippet could be improved and packed into the xontrib. Start from https://github.com/xonsh/xontrib-template
