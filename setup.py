@@ -26,6 +26,7 @@ setuptools.setup(
         'xontrib-output-search', # Get identifiers, names, paths, URLs and words from the previous command output and use them for the next command in xonsh. 
         'xontrib-argcomplete', # Argcomplete support to tab completion of python and xonsh scripts in xonsh shell. 
         'xontrib-cmd-durations', # Show long running commands durations in prompt with option to send notification when terminal is not focused. 
+        'xontrib-jedi', # Jedi - an awesome autocompletion, static analysis and refactoring library for Python
         
         # Get more xontribs:
         #  * https://github.com/topics/xontrib
