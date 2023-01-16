@@ -97,6 +97,43 @@ _xontribs_to_load = (
 )
 xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
 
+
+# ------------------------------------------------------------------------------
+# Cross-platform smart aliases
+# ------------------------------------------------------------------------------
+
+# `j [dir name]` command to jump to the most frequent directory.
+#
+# This is the install-free replace of the tools like:
+#  * autojump - https://github.com/wting/autojump
+#  * zoxide - https://github.com/ajeetdsouza/zoxide
+# 
+if $XONSH_HISTORY_BACKEND == 'sqlite':
+    def _dir_jump(args):
+        import sqlite3 as _sqlite3
+        from pathlib import Path as _Path
+        con = _sqlite3.connect($XONSH_HISTORY_FILE)
+        success = False
+        try:
+            cur = con.cursor()
+            sql = f"""
+                SELECT cwd FROM xonsh_history 
+                WHERE cwd LIKE ? and cwd != ?
+                GROUP BY cwd ORDER BY count(*) DESC
+                LIMIT 10"""
+            for row in cur.execute(sql, (f"%{args[0] if args else ''}%", $PWD)):
+                if _Path(row[0]).exists():
+                    cd @(row[0])
+                    success = True
+                    break
+        finally:
+            con.close()
+
+        return 0 if success else 1
+
+    aliases['j'] = _dir_jump
+    del _dir_jump
+
 # ------------------------------------------------------------------------------
 # Platform specific
 # ------------------------------------------------------------------------------
