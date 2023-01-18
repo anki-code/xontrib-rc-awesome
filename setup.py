@@ -27,6 +27,7 @@ setuptools.setup(
         'xontrib-argcomplete', # Argcomplete support to tab completion of python and xonsh scripts in xonsh shell. 
         'xontrib-cmd-durations', # Show long running commands durations in prompt with option to send notification when terminal is not focused. 
         'xontrib-jedi', # Jedi - an awesome autocompletion, static analysis and refactoring library for Python
+        'xontrib-jump-to-dir', # Jump to used before directory by part of the path. Lightweight zero-dependency implementation of autojump or zoxide projects functionality. 
         
         # Get more xontribs:
         #  * https://github.com/topics/xontrib
