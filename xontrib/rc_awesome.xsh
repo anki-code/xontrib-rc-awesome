@@ -95,7 +95,7 @@ _xontribs_to_load = (
     'cmd_done',           # Show long running commands durations in prompt with option to send notification when terminal is not focused. URL: https://github.com/jnoortheen/xontrib-cmd-durations
     'jedi',               # Jedi - an awesome autocompletion, static analysis and refactoring library for Python. URL: https://github.com/xonsh/xontrib-jedi
     'jump_to_dir',        # Jump to used before directory by part of the path. Lightweight zero-dependency implementation of autojump or zoxide projects functionality. 
-    'clp',                # Copy output to clipboard.
+    'clp',                # Copy output to clipboard. URL: https://github.com/anki-code/xontrib-clp
 )
 xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
 
