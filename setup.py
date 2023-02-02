@@ -28,6 +28,7 @@ setuptools.setup(
         'xontrib-cmd-durations', # Show long running commands durations in prompt with option to send notification when terminal is not focused. 
         'xontrib-jedi', # Jedi - an awesome autocompletion, static analysis and refactoring library for Python
         'xontrib-jump-to-dir', # Jump to used before directory by part of the path. Lightweight zero-dependency implementation of autojump or zoxide projects functionality. 
+        'xontrib-clp', # Copy output to clipboard. URL: https://github.com/anki-code/xontrib-clp
         
         # Get more xontribs:
         #  * https://github.com/topics/xontrib
