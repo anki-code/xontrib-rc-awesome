@@ -146,15 +146,6 @@ if ON_LINUX or ON_DARWIN:
     # Example: cd ~/git/xonsh && greps environ
     aliases['greps'] = 'grep -ri'
 
-    # Copy output to current clipboard using xclip. This snippet could be improved and packed into the xontrib. Start from https://github.com/xonsh/xontrib-template
-    # Example: echo hello | clp
-    if _shutil.which('pbcopy'):  # DARWIN
-        aliases['clp'] = 'pbcopy'
-    elif _shutil.which('xclip'):  # LINUX
-        aliases['clp'] = 'xclip -sel clip'
-    elif _shutil.which('clip.exe'):  # WINDOWS
-        aliases['clp'] = 'clip.exe'
-
     # SSH: Suppress "Connection close" message.
     aliases['ssh'] = 'ssh -o LogLevel=QUIET'
 
