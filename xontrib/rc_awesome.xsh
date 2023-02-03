@@ -188,13 +188,14 @@ if ON_LINUX or ON_DARWIN:
                 xontrib load apt_tabcomplete
 
             
-    # History search alias
+    # Example of history search alias for sqlite history backend
     # You can use it ordinarily: `history-search "cd /"`
     # Or as a macro call: `history-search! cd /`
     aliases['history-search'] = """sqlite3 $XONSH_HISTORY_FILE @("SELECT inp FROM xonsh_history WHERE inp LIKE '%" + $arg0 + "%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");"""
 
     #        
     # The command to pull history from other SQLite history backend sessions. 
+    # Should be in xonsh core - https://github.com/xonsh/xonsh/issues/5044
     #        
     
     try:
@@ -231,7 +232,7 @@ if ON_LINUX or ON_DARWIN:
     
     
     #
-    # Binding the hotkeys - https://xon.sh/tutorial_ptk.html
+    # Example of binding the hotkeys - https://xon.sh/tutorial_ptk.html
     # List of keys - https://github.com/prompt-toolkit/python-prompt-toolkit/blob/master/src/prompt_toolkit/keys.py
     #
     
@@ -253,7 +254,7 @@ if ON_LINUX or ON_DARWIN:
 
 
     #
-    # Comma separated thousands in output
+    # Example of customizing the output: comma separated thousands in output
     # Input: 1000+10000
     # Output: 11,000
     #    
