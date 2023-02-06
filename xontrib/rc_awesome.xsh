@@ -193,43 +193,6 @@ if ON_LINUX or ON_DARWIN:
     # Or as a macro call: `history-search! cd /`
     aliases['history-search'] = """sqlite3 $XONSH_HISTORY_FILE @("SELECT inp FROM xonsh_history WHERE inp LIKE '%" + $arg0 + "%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");"""
 
-    #        
-    # The command to pull history from other SQLite history backend sessions. 
-    # Should be in xonsh core - https://github.com/xonsh/xonsh/issues/5044
-    #        
-    
-    try:
-        $XONSH_HISTORY_SQLITE_PULL_TIME = __xonsh__.history[0].ts[0]
-    except:
-        $XONSH_HISTORY_SQLITE_PULL_TIME = _time.time()
-        
-    def _history_pull():
-        if $XONSH_HISTORY_BACKEND != 'sqlite':
-            printx('{RED}To pull history use SQLite history backend.{RESET}')
-            return -1
-        if not _shutil.which('sqlite3'):
-            printx('{RED}Install sqlite3.{RESET}')
-            return -1
-
-        sessionid = __xonsh__.history.info()['sessionid']
-        sql_records = f"SELECT inp FROM xonsh_history WHERE tsb > '{$XONSH_HISTORY_SQLITE_PULL_TIME}' AND sessionid != '{sessionid}' ORDER BY tsb"
-        rows = $(sqlite3 $XONSH_HISTORY_FILE @(sql_records)).splitlines()
-        i = 0
-        for r in rows:
-            __xonsh__.shell.shell.prompter.history.append_string(r)
-            print(r)
-            i += 1
-
-        $XONSH_HISTORY_SQLITE_PULL_TIME = _time.time()
-
-        if i > 0:
-            printx(f'{{GREEN}}Added {i} records!{{RESET}}')
-        else:
-            printx(f'{{YELLOW}}No new records found.{{RESET}}')
-
-    aliases['history-pull'] = _history_pull
-    del _history_pull
-    
     
     #
     # Example of binding the hotkeys - https://xon.sh/tutorial_ptk.html
