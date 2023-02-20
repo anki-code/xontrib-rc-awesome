@@ -142,6 +142,10 @@ if ON_LINUX or ON_DARWIN:
     if _shutil.which('rsync'):
         aliases['cp'] = 'rsync --progress --recursive --archive'
     
+    # `grep` with color output.
+    # This is distinct alias to keep output clean in case `var = $(echo 123 | grep 12)`
+    aliases['grepc'] = 'grep --color=always'
+    
     # Grepping string occurrences recursively starting from current directory.
     # Example: cd ~/git/xonsh && greps environ
     aliases['greps'] = 'grep -ri'
