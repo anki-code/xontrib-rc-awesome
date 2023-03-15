@@ -16,7 +16,7 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # It's a good practice to keep xonsh session cleano and add _ alias for import
 # ------------------------------------------------------------------------------
 
-import shutil as _shutil
+from shutil import which as _which
 import time as _time
 
 # ------------------------------------------------------------------------------
@@ -131,7 +131,7 @@ if ON_LINUX or ON_DARWIN:
 
     # Run Midnight Commander where left and right panel will be the current and the previous directory.
     # Required: $AUTO_PUSHD = True
-    if _shutil.which('mc'):
+    if _which('mc'):
         aliases['mc'] = "mc @($PWD if not $args else $args) @($OLDPWD if not $args else $PWD)"
 
     # Make directory and cd into it.
@@ -139,7 +139,7 @@ if ON_LINUX or ON_DARWIN:
     aliases['md'] = 'mkdir -p $arg0 && cd $arg0'
         
     # Using rsync instead of cp to get the progress and speed of copying.
-    if _shutil.which('rsync'):
+    if _which('rsync'):
         aliases['cp'] = 'rsync --progress --recursive --archive'
     
     # `grep` with color output.
@@ -156,8 +156,15 @@ if ON_LINUX or ON_DARWIN:
     # Run http server in the current directory.
     aliases['http-here'] = 'python3 -m http.server'
 
+    # myip - get my external IP address
+    if _which('curl'):
+        _myip = "curl @($args) -s https://ifconfig.co/json"
+        if _which('jq'):
+            _myip += " | jq '[.ip, .country, .region_name, .city, .asn_org, .hostname]'"
+        aliases['myip'] = _myip
+        del _myip
     
-    if _shutil.which('screen'):
+    if _which('screen'):
         # `screen-run` alias to run command in screen session
         def _screen_run(args):
             from datetime import datetime as _datetime
