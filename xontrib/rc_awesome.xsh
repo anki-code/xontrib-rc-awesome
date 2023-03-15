@@ -158,7 +158,7 @@ if ON_LINUX or ON_DARWIN:
 
     # myip - get my external IP address
     if _which('curl'):
-        aliases['myip'] = 'curl @($args) -s https://ifconfig.co/json' + (' | jq' if _which('jq') '')
+        aliases['myip'] = 'curl @($args) -s https://ifconfig.co/json' + (' | jq' if _which('jq') else '')
     
     if _which('screen'):
         # `screen-run` alias to run command in screen session
