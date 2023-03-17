@@ -9,7 +9,7 @@ If you like the idea click ⭐ on the repo and stay tuned.
 # ------------------------------------------------------------------------------
 
 # https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1696
-__import__('warnings').filterwarnings('ignore', 'There is no current event loop', DeprecationWarning, 'prompt_toolkit.eventloop.utils')
+__import__('warnings').filterwarnings('ignore', 'There is no current event loop', DeprecationWarning, 'prompt_toolkit')
 
 # ------------------------------------------------------------------------------
 # Imports
