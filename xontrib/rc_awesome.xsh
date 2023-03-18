@@ -62,11 +62,13 @@ $MULTILINE_PROMPT = ' '
 $MOUSE_SUPPORT = True
 
 
-# cd-ing shortcuts.
-aliases['-'] = 'cd -'
-aliases['..'] = 'cd ..'
-aliases['....'] = 'cd ../..'
-
+# Adding aliases from dict
+aliases |= {
+    # cd-ing shortcuts.
+    '-': 'cd -',
+    '..': 'cd ..',
+    '....': 'cd ../..',
+}
 
 # Avoid typing cd just directory path. 
 # Docs: https://xonsh.github.io/envvars.html#auto-cd
@@ -125,37 +127,40 @@ if ON_LINUX or ON_DARWIN:
         if p.exists():
             $PATH.append(str(p))
     
-    
-    # List all files: sorted, with colors, directories will be first (Midnight Commander style).
-    aliases['ll'] = "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)"
+    # Adding aliases from dict
+    aliases |= {
+        # List all files: sorted, with colors, directories will be first (Midnight Commander style).
+        'll': "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)",
+        
+        # Make directory and cd into it.
+        # Example: md /tmp/my/awesome/dir/will/be/here
+        'md': 'mkdir -p $arg0 && cd $arg0',
+        
+        # Grepping string occurrences recursively starting from current directory.
+        # Example: cd ~/git/xonsh && greps environ
+        'greps': 'grep -ri',
 
+        # `grep` with color output.
+        # This is distinct alias to keep output clean in case `var = $(echo 123 | grep 12)`
+        'grepc': 'grep --color=always',
+    
+        # SSH: Suppress "Connection close" message.
+        'ssh': 'ssh -o LogLevel=QUIET',
+
+        # Run http server in the current directory.
+        'http-here': 'python3 -m http.server',
+
+    }
+    
     # Run Midnight Commander where left and right panel will be the current and the previous directory.
     # Required: $AUTO_PUSHD = True
     if _which('mc'):
         aliases['mc'] = "mc @($PWD if not $args else $args) @($OLDPWD if not $args else $PWD)"
 
-    # Make directory and cd into it.
-    # Example: md /tmp/my/awesome/dir/will/be/here
-    aliases['md'] = 'mkdir -p $arg0 && cd $arg0'
-        
     # Using rsync instead of cp to get the progress and speed of copying.
     if _which('rsync'):
         aliases['cp'] = 'rsync --progress --recursive --archive'
-    
-    # `grep` with color output.
-    # This is distinct alias to keep output clean in case `var = $(echo 123 | grep 12)`
-    aliases['grepc'] = 'grep --color=always'
-    
-    # Grepping string occurrences recursively starting from current directory.
-    # Example: cd ~/git/xonsh && greps environ
-    aliases['greps'] = 'grep -ri'
-
-    # SSH: Suppress "Connection close" message.
-    aliases['ssh'] = 'ssh -o LogLevel=QUIET'
-
-    # Run http server in the current directory.
-    aliases['http-here'] = 'python3 -m http.server'
-
+        
     # myip - get my external IP address
     if _which('curl'):
         aliases['myip'] = 'curl @($args) -s https://ifconfig.co/json' + (' | jq' if _which('jq') else '')
@@ -170,8 +175,6 @@ if ON_LINUX or ON_DARWIN:
             print('Start session', screen_name, ':', screen_cmd)
             screen -S @(screen_name)  xonsh -c @(screen_cmd + '; echo Done; exec xonsh')
             screen -ls
-
-        
     
     #
     # Xontribs - https://github.com/topics/xontrib
