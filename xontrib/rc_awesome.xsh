@@ -162,15 +162,15 @@ if ON_LINUX or ON_DARWIN:
     
     if _which('screen'):
         # `screen-run` alias to run command in screen session
-        def _screen_run(args):
+        @aliases.register("screen-run")
+        def __screen_run(args):
             from datetime import datetime as _datetime
             screen_name = "s" + _datetime.now().strftime("%S%M%H")  # This screen name is more unique to run `screen -r <name>`
             screen_cmd = " ".join(args)
             print('Start session', screen_name, ':', screen_cmd)
             screen -S @(screen_name)  xonsh -c @(screen_cmd + '; echo Done; exec xonsh')
             screen -ls
-        aliases['screen-run'] = _screen_run
-        del _screen_run
+
         
     
     #
