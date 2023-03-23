@@ -50,3 +50,4 @@ xonsh
 
 ### See also
 * [xonsh-cheatsheet](https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md) - cheat sheet for xonsh shell with copy-pastable examples.
+* [xontrib-template](https://github.com/xonsh/xontrib-template) - Full-featured template for building extension (xontrib) for the xonsh shell.
