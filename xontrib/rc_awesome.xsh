@@ -165,6 +165,16 @@ if ON_LINUX or ON_DARWIN:
     if _which('curl'):
         aliases['myip'] = 'curl @($args) -s https://ifconfig.co/json' + (' | jq' if _which('jq') else '')
     
+    # OpenAI model to translate text to code
+    # Example:
+    #     ```
+    #     ai2! give me the small json in one line
+    #     # {"name":"John","age":30,"city":"New York"}
+    #     ```
+    if _which('openai'):
+        $OPENAI_API_KEY = 'abcde1234'  # https://platform.openai.com/account/api-keys
+        aliases['ai'] = "openai api completions.create -m text-davinci-003 -t 0 -M 500 --stream -p @(' '.join($args))"
+    
     if _which('screen'):
         # `screen-run` alias to run command in screen session
         @aliases.register("screen-run")
