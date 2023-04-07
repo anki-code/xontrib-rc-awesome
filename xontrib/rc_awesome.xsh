@@ -67,8 +67,18 @@ aliases |= {
     # cd-ing shortcuts.
     '-': 'cd -',
     '..': 'cd ..',
-    '....': 'cd ../..',
 }
+
+
+# Easy way to go back cd-ing
+# Example: `,,` the same as `cd ../../`
+@aliases.register(",")
+@aliases.register(",,")
+@aliases.register(",,,")
+@aliases.register(",,,,")
+def _superdot():
+    cd @("../" * len($__ALIAS_NAME))
+    
 
 # Avoid typing cd just directory path. 
 # Docs: https://xonsh.github.io/envvars.html#auto-cd
