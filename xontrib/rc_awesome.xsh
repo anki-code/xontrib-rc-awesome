@@ -76,7 +76,7 @@ aliases |= {
 @aliases.register(",,")
 @aliases.register(",,,")
 @aliases.register(",,,,")
-def _superdot():
+def _supercomma():
     cd @("../" * len($__ALIAS_NAME))
     
 
