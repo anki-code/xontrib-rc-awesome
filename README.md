@@ -21,6 +21,8 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
     echo 'xontrib load rc_yourname' >> ~/.xonshrc
     xonsh
     ```
+    Also you can avoid manual loading the xontrib in `~/.xonshrc` by creating autoloadable xontrib using [xontrib-template](https://github.com/xonsh/xontrib-template). Answer yes on the question about enabling autoloading.
+    
 7. [Increment version](https://github.com/anki-code/xontrib-rc-awesome/blob/df5c0aa3e29325f5d926cec7022cd2ccc184c0c5/setup.py#L12) to update the package using `pip install -U git+https://github.com/yourname/xontrib-rc-yourname`
 
 #### Copy and paste
