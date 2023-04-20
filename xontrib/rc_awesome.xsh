@@ -67,6 +67,9 @@ aliases |= {
     # cd-ing shortcuts.
     '-': 'cd -',
     '..': 'cd ..',
+    
+    # update pip and xonsh
+    'xonsh-update': 'xpip install -U pip && xpip install -U git+https://github.com/xonsh/xonsh',
 }
 
 
