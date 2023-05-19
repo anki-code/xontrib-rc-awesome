@@ -91,28 +91,20 @@ $AUTO_CD = True
 # Xontribs - https://github.com/topics/xontrib
 #
 # Note! Because of xonsh read ~/.xonshrc on every start and can be executed from any virtual environment 
-# with the different set of installed packages it's a highly recommended approach to check 
-# the list of the xontribs before loading to avoid errors.
+# with the different set of installed packages it's a highly recommended approach to use `-s` to avoid errors.
+# Read more: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
 #
-# Read: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
-# Vote to simplify loading: https://github.com/xonsh/xonsh/issues/5023
-#
-# TODO: reduce this code after merging https://github.com/xonsh/xonsh/pull/5028
-#
-from xonsh.xontribs import get_xontribs
-_xontribs_installed = set(get_xontribs().keys())
-
 _xontribs_to_load = (
+    'jump_to_dir',        # Jump to used before directory by part of the path. Lightweight zero-dependency implementation of autojump or zoxide projects functionality. 
+    'prompt_bar',         # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
     'whole_word_jumping', # Jumping across whole words (non-whitespace) with Ctrl+Left/Right and Alt+Left/Right on Linux or Option+Left/Right on macOS.
     'back2dir',           # Back to the latest used directory when starting xonsh shell. URL: https://github.com/anki-code/xontrib-back2dir
-    'prompt_bar',         # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
     'pipeliner',          # Let your pipe lines flow thru the Python code. URL: https://github.com/anki-code/xontrib-pipeliner
     'cmd_done',           # Show long running commands durations in prompt with option to send notification when terminal is not focused. URL: https://github.com/jnoortheen/xontrib-cmd-durations
     'jedi',               # Jedi - an awesome autocompletion, static analysis and refactoring library for Python. URL: https://github.com/xonsh/xontrib-jedi
-    'jump_to_dir',        # Jump to used before directory by part of the path. Lightweight zero-dependency implementation of autojump or zoxide projects functionality. 
     'clp',                # Copy output to clipboard. URL: https://github.com/anki-code/xontrib-clp
 )
-xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
+xontrib load -s @(_xontribs_to_load)
 
 
 # ------------------------------------------------------------------------------
@@ -198,22 +190,18 @@ if ON_LINUX or ON_DARWIN:
             print('Start session', screen_name, ':', screen_cmd)
             screen -S @(screen_name)  xonsh -c @(screen_cmd + '; echo Done; exec xonsh')
             screen -ls
-    
     #
     # Xontribs - https://github.com/topics/xontrib
     #
     # Note! Because of xonsh read ~/.xonshrc on every start and can be executed from any virtual environment 
-    # with the different set of installed packages it's a highly recommended approach to check 
-    # the list of the xontribs before loading to avoid errors.
-    #
-    # Read: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
-    # Vote to simplify loading: https://github.com/xonsh/xonsh/issues/5023
+    # with the different set of installed packages it's a highly recommended approach to use `-s` to avoid errors.
+    # Read more: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
     #
     _xontribs_to_load = (
         'sh',                # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. URL: https://github.com/anki-code/xontrib-sh
         #'output_search',    # Get words from the previous command output for the next command. URL: https://github.com/tokenizer/xontrib-output-search
     )
-    xontrib load @(_xontribs_installed.intersection(_xontribs_to_load))
+    xontrib load -s @(_xontribs_to_load)
     
     if False: # Example of how to check the operating system
         if ON_LINUX and 'apt_tabcomplete' in _xontribs_installed and shutil.which('lsb_release'):
