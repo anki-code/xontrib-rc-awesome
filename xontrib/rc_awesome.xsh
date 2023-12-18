@@ -265,5 +265,6 @@ $XONSH_SHOW_TRACEBACK = False
 
 # Suppress line "Did you mean one of the following?"
 $SUGGEST_COMMANDS = False
-    
-   
+
+
+# Thanks for reading! PR is welcome!
