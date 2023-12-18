@@ -32,7 +32,7 @@ if __xonsh__.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYP
 #  - https://github.com/xonsh/xonsh/issues/4152#issue-823993141
 $PROMPT_FIELDS['prompt_end'] = '@'
 
-# Add xontrib-cmd-durations to right prompt
+# Add xontrib-cmd-durations to right prompt.
 $RIGHT_PROMPT = '{long_cmd_duration}'
 
 # The SQLite history backend saves command immediately 
