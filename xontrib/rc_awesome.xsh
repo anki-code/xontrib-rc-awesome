@@ -110,7 +110,7 @@ xontrib load -s @(_xontribs_to_load)
 # ------------------------------------------------------------------------------
 # Conda (https://conda-forge.org/)
 # ------------------------------------------------------------------------------
-# If you're using Conda to speed up startup you can disable auto activate the base environment.
+# To speed up startup you can disable auto activate the base environment.
 # $CONDA_AUTO_ACTIVATE_BASE = 'false'
 
 
