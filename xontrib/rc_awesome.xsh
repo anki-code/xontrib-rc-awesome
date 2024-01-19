@@ -62,7 +62,7 @@ $MULTILINE_PROMPT = ' '
 $MOUSE_SUPPORT = True
 
 
-# Adding aliases from dict
+# Adding aliases from dict.
 aliases |= {
     # cd-ing shortcuts.
     '-': 'cd -',
@@ -73,15 +73,33 @@ aliases |= {
 }
 
 
-# Easy way to go back cd-ing
+# Easy way to go back cd-ing.
 # Example: `,,` the same as `cd ../../`
 @aliases.register(",")
 @aliases.register(",,")
 @aliases.register(",,,")
 @aliases.register(",,,,")
-def _supercomma():
+def _alias_supercomma():
+    """Easy way to go back cd-ing."""
     cd @("../" * len($__ALIAS_NAME))
-    
+
+
+# Alias to get Xonsh Context.
+# Read more: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
+@aliases.register("xc")
+def _alias_xc():
+    """Get xonsh context."""    
+    print('xonsh:', $(which xonsh))
+    print('xpip:', $(which xpip).strip())  # xpip - xonsh's builtin to install packages in current session xonsh environment.
+    print('python:', $(which python))
+    print('python ver:', $(python -V).strip())
+    print('pip:', $(which xonsh))
+
+    envs = ['CONDA_DEFAULT_ENV']
+    for ev in envs:
+        if (val := __xonsh__.env.get(ev)):
+            print(f'{ev}:', val)
+
 
 # Avoid typing cd just directory path. 
 # Docs: https://xonsh.github.io/envvars.html#auto-cd
