@@ -126,7 +126,7 @@ xontrib load -s @(_xontribs_to_load)
 
 #
 # Python sugar: inline import
-#
+# Usage:
 #    imp.json.loads('{"a":1}')                    # {'a': 1}
 #    imp.datetime.datetime.now().isoformat()      # '2024-02-12T15:29:57.125696'
 #    imp.hashlib.md5(b'Hello world').hexdigest()  # '3e25960a79dbc69b674cd4ec67a72c62'
