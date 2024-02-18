@@ -267,8 +267,13 @@ if ON_LINUX or ON_DARWIN:
 
         # Press F3 to insert the grep command
         @bindings.add(Keys.F3)
-        def say_hi(event):
-            event.current_buffer.insert_text(' | grep -i ')            
+        def add_grep(event):
+            event.current_buffer.insert_text(' | grep -i ')     
+
+        # Clear line by pressing `Escape` key
+        @bindings.add("escape")
+        def clear_line(event):
+            event.current_buffer.delete_before_cursor(1000)
 
 
     #
