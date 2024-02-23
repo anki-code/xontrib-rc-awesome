@@ -244,10 +244,14 @@ if ON_LINUX or ON_DARWIN:
 
             
     # Example of history search alias for sqlite history backend
-    # You can use it ordinarily: `history-search "cd /"`
-    # Or as a macro call: `history-search! cd /`
-    aliases['history-search'] = """sqlite3 $XONSH_HISTORY_FILE @("SELECT inp FROM xonsh_history WHERE inp LIKE '%" + $arg0 + "%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");"""
-
+    # You can use it ordinarily: `hs "cd /"`
+    # Or as a macro call: `hs! cd /`
+    aliases |= {
+        # history search
+        'hs': """sqlite3 $XONSH_HISTORY_FILE @("SELECT inp FROM xonsh_history WHERE inp LIKE '%" + $arg0 + "%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");""",
+        # history in dir
+        'hd': """sqlite3 $XONSH_HISTORY_FILE @(f"SELECT inp FROM xonsh_history WHERE cwd LIKE '%{$PWD}%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");""",
+    }
     
     #
     # Example of binding the hotkeys - https://xon.sh/tutorial_ptk.html
