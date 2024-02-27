@@ -91,9 +91,10 @@ def _alias_xc():
     """Get xonsh context."""    
     print('xonsh:', $(which xonsh))
     print('xpip:', $(which xpip).strip())  # xpip - xonsh's builtin to install packages in current session xonsh environment.
+    print('')
     print('python:', $(which python))
     print('python ver:', $(python -V).strip())
-    print('pip:', $(which xonsh))
+    print('pip:', $(which pip))
 
     envs = ['CONDA_DEFAULT_ENV']
     for ev in envs:
