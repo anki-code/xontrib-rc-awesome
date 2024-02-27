@@ -95,7 +95,7 @@ def _alias_xc():
     print('python:', $(which python))
     print('python ver:', $(python -V).strip())
     print('pip:', $(which pip))
-
+    print('')
     envs = ['CONDA_DEFAULT_ENV']
     for ev in envs:
         if (val := __xonsh__.env.get(ev)):
