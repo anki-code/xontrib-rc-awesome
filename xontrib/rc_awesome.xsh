@@ -134,6 +134,9 @@ xontrib load -s @(_xontribs_to_load)
 #
 imp = type('MyClass', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
+# Additional sugar: callable environment variable. Try `echo $dt`.
+# See also - https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#transparent-callable-environment-variables
+$dt = type('TimeCl', (object,), {'__repr__':lambda self: imp.datetime.datetime.now().isoformat() })()
 
 # ------------------------------------------------------------------------------
 # Conda (https://conda-forge.org/)
