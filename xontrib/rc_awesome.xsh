@@ -241,10 +241,11 @@ if ON_LINUX or ON_DARWIN:
     )
     xontrib load -s @(_xontribs_to_load)
     
-    if False: # Example of how to check the operating system
-        if ON_LINUX and 'apt_tabcomplete' in _xontribs_installed and shutil.which('lsb_release'):
-            if 'Ubuntu' in $(lsb_release --id --release --short).strip():
-                xontrib load apt_tabcomplete
+    if False:
+        # Example of how to check the operating system and install xontrib from git.
+        if ON_LINUX and _which('lsb_release') and 'Ubuntu' in $(lsb_release --id --release --short):
+            xpip install git+https://github.com/DangerOnTheRanger/xonsh-apt-tabcomplete
+            xontrib load apt_tabcomplete
 
             
     # Example of history search alias for sqlite history backend.
