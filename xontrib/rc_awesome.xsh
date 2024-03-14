@@ -211,7 +211,7 @@ if ON_LINUX or ON_DARWIN:
     # OpenAI model to translate text to code
     # Example:
     #     ```
-    #     ai2! give me the small json in one line
+    #     ai! give me the small json in one line
     #     # {"name":"John","age":30,"city":"New York"}
     #     ```
     if _which('openai'):
