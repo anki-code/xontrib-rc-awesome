@@ -165,12 +165,12 @@ if ON_LINUX or ON_DARWIN:
     # It's for `mc` alias (below).
     $AUTO_PUSHD = True
 
-    # Add default bin paths
+    # Add default bin paths.
     for p in [p'/home/linuxbrew/.linuxbrew/bin', p'~/.local/bin'.expanduser(), p'/opt/homebrew/opt/coreutils/libexec/gnubin']:
         if p.exists():
             $PATH.append(str(p))
     
-    # Adding aliases from dict
+    # Adding aliases from dict.
     aliases |= {
         # List all files: sorted, with colors, directories will be first (Midnight Commander style).
         'll': "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)",
@@ -208,7 +208,7 @@ if ON_LINUX or ON_DARWIN:
     if _which('curl'):
         aliases['myip'] = 'curl @($args) -s https://ifconfig.co/json' + (' | jq' if _which('jq') else '')
     
-    # OpenAI model to translate text to code
+    # OpenAI model to translate text to code.
     # Example:
     #     ```
     #     ai! give me the small json in one line
@@ -219,7 +219,7 @@ if ON_LINUX or ON_DARWIN:
         aliases['ai'] = "openai api completions.create -m text-davinci-003 -t 0 -M 500 --stream -p @(' '.join($args))"
     
     if _which('screen'):
-        # `screen-run` alias to run command in screen session
+        # `screen-run` alias to run command in screen session.
         @aliases.register("screen-run")
         def __screen_run(args):
             from datetime import datetime as _datetime
@@ -247,9 +247,9 @@ if ON_LINUX or ON_DARWIN:
                 xontrib load apt_tabcomplete
 
             
-    # Example of history search alias for sqlite history backend
-    # You can use it ordinarily: `hs "cd /"`
-    # Or as a macro call: `hs! cd /`
+    # Example of history search alias for sqlite history backend.
+    # You can use it ordinarily: `hs "cd /"`.
+    # Or as a macro call: `hs! cd /`.
     aliases |= {
         # history search
         'hs': """sqlite3 $XONSH_HISTORY_FILE @("SELECT inp FROM xonsh_history WHERE inp LIKE '%" + $arg0 + "%' AND inp NOT LIKE 'history-%' ORDER BY tsb DESC LIMIT 10");""",
@@ -286,9 +286,9 @@ if ON_LINUX or ON_DARWIN:
 
 
     #
-    # Example of customizing the output: comma separated thousands in output
-    # Input: 1000+10000
-    # Output: 11,000
+    # Example of customizing the output: comma separated thousands in output.
+    # Input: `1000+10000`.
+    # Output: `11,000`.
     #    
     import xonsh.pretty
     xonsh.pretty.for_type(type(1), lambda int, printer, cycle: printer.text(f'{int:,}'))
@@ -298,13 +298,13 @@ if ON_LINUX or ON_DARWIN:
 # Final
 # ------------------------------------------------------------------------------
         
-# For the experienced users
+# For the experienced users:
 
-# Suppress line "xonsh: For full traceback set: $XONSH_SHOW_TRACEBACK = True" 
+# Suppress line "xonsh: For full traceback set: $XONSH_SHOW_TRACEBACK = True".
 # in case of exceptions or wrong command.
 $XONSH_SHOW_TRACEBACK = False
 
-# Suppress line "Did you mean one of the following?"
+# Suppress line "Did you mean one of the following?".
 $SUGGEST_COMMANDS = False
 
 
