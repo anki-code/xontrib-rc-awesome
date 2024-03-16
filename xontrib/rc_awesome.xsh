@@ -102,7 +102,7 @@ def _alias_xc():
             print(f'{ev}:', val)
 
 
-# Example of utilizing ``xonsh.tools.chdir` to do git commit, git config, git pull and push at once.
+# Example of utilizing `xonsh.tools.chdir` to do git commit, git config, git pull and push at once.
 # Usage: git-sync ~/git/myrepo1 ~/git/myrepo2
 if _which('git'):
     @aliases.register('git-sync')
