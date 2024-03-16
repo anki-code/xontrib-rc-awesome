@@ -114,7 +114,7 @@ if _which('git'):
             with chdir(p):
                 git config --local user.name $USER
                 git config --local user.email $USER@$USER.local
-                git commit --allow-empty -a -uno -m update
+                git commit --allow-empty -a -uno -m "Update"
                 git pull --rebase
                 git push
 
