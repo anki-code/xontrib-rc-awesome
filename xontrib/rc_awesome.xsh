@@ -102,6 +102,23 @@ def _alias_xc():
             print(f'{ev}:', val)
 
 
+# Example of utilizing ``xonsh.tools.chdir` to do git commit, git config, git pull and push at once.
+# Usage: git-sync ~/git/myrepo1 ~/git/myrepo2
+if _which('git'):
+    @aliases.register('git-sync')
+    def _git_sync(args):
+        from xonsh.tools import chdir
+        paths = args if args else [$PWD]
+        for p in paths:
+            print(f'git sync {p}')
+            with chdir(p):
+                git config --local user.name $USER
+                git config --local user.email $USER@$USER.local
+                git commit --allow-empty -a -uno -m update
+                git pull --rebase
+                git push
+
+
 # Avoid typing cd just directory path. 
 # Docs: https://xonsh.github.io/envvars.html#auto-cd
 $AUTO_CD = True
