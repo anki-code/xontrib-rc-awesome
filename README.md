@@ -25,6 +25,8 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
     
 7. [Increment version](https://github.com/anki-code/xontrib-rc-awesome/blob/df5c0aa3e29325f5d926cec7022cd2ccc184c0c5/setup.py#L12) to update the package using `pip install -U git+https://github.com/yourname/xontrib-rc-yourname`
 
+8. Take a look into [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app) if you want to create your own toolset.
+
 #### Copy and paste
 
 Just read [rc_awesome](https://github.com/anki-code/xontrib-rc-awesome/blob/main/xontrib/rc_awesome.xsh) and copy the snippets to your xonsh RC.
