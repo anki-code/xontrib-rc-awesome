@@ -90,10 +90,10 @@ def _alias_supercomma():
 def _alias_xc():
     """Get xonsh context."""    
     print('xonsh:', $(which xonsh))
+    print('xpython:', imp.sys.executable, '#', $(xpy -V).strip())
     print('xpip:', $(which xpip).strip())  # xpip - xonsh's builtin to install packages in current session xonsh environment.
     print('')
-    print('python:', $(which python))
-    print('python ver:', $(python -V).strip())
+    print('python:', $(which python), '#' ,$(python -V).strip())
     print('pip:', $(which pip))
     print('')
     envs = ['CONDA_DEFAULT_ENV']
