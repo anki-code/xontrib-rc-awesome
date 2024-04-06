@@ -186,9 +186,13 @@ if ON_LINUX or ON_DARWIN:
     for p in [p'/home/linuxbrew/.linuxbrew/bin', p'~/.local/bin'.expanduser(), p'/opt/homebrew/opt/coreutils/libexec/gnubin']:
         if p.exists():
             $PATH.append(str(p))
-    
+
+
     # Adding aliases from dict.
     aliases |= {
+        # Execute python that used to run current xonsh session.
+        'xpy': imp.sys.executable,
+
         # List all files: sorted, with colors, directories will be first (Midnight Commander style).
         'll': "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)",
         
