@@ -191,7 +191,7 @@ if ON_LINUX or ON_DARWIN:
     # Adding aliases from dict.
     aliases |= {
         # Execute python that used to run current xonsh session.
-        'xpy': imp.sys.executable,
+        'xpython': imp.sys.executable,
 
         # List all files: sorted, with colors, directories will be first (Midnight Commander style).
         'll': "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)",
