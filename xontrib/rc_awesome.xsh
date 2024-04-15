@@ -89,10 +89,10 @@ def _alias_supercomma():
 @aliases.register("xc")
 def _alias_xc():
     """Get xonsh context."""    
-    print('xonsh:', $(which xonsh))
     print('xpython:', imp.sys.executable, '#', $(xpy -V).strip())
     print('xpip:', $(which xpip).strip())  # xpip - xonsh's builtin to install packages in current session xonsh environment.
     print('')
+    print('xonsh:', $(which xonsh))
     print('python:', $(which python), '#' ,$(python -V).strip())
     print('pip:', $(which pip))
     print('')
