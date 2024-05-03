@@ -32,7 +32,7 @@ if __xonsh__.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYP
 #  - https://github.com/xonsh/xonsh/issues/4152#issue-823993141
 $PROMPT_FIELDS['prompt_end'] = '@'
 
-# Optionally
+
 # Switch subprocess output to lines (xonsh > 0.16.0) to have an ability to run commands like `du $(ls)`.
 # Note! Downstream tools can produce errors after this so wrap the loading of them into 
 # ```
