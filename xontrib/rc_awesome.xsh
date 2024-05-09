@@ -16,6 +16,7 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # It's a good practice to keep xonsh session cleano and add _ alias for import
 # ------------------------------------------------------------------------------
 
+from xonsh.built_ins import XSH  # Good aleternative for `__xonsh__`.
 from shutil import which as _which
 import time as _time
 
@@ -23,7 +24,7 @@ import time as _time
 # Cross platform
 # ------------------------------------------------------------------------------
 
-if __xonsh__.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
+if XSH.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
     printx("{YELLOW}xontrib-rc-awesome: We recommend to use prompt_toolkit shell by installing `xonsh[full]` package.{RESET}")
 
 # First of all replace `$` to `@` in the prompt to not to be confused with another shell.
@@ -111,7 +112,7 @@ def _alias_xc():
     print('')
     envs = ['CONDA_DEFAULT_ENV']
     for ev in envs:
-        if (val := __xonsh__.env.get(ev)):
+        if (val := XSH.env.get(ev)):
             print(f'{ev}:', val)
 
 
