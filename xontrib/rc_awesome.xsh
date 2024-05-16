@@ -16,7 +16,7 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # It's a good practice to keep xonsh session cleano and add _ alias for import
 # ------------------------------------------------------------------------------
 
-from xonsh.built_ins import XSH  # Good aleternative for `__xonsh__`.
+XSH = __xonsh__  # Sugar.
 from shutil import which as _which
 import time as _time
 
