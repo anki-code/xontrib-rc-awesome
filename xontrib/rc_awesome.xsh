@@ -16,15 +16,16 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # It's a good practice to keep xonsh session cleano and add _ alias for import
 # ------------------------------------------------------------------------------
 
-X = __xonsh__  # Sugar e.g. `X.last.rtn` to get return code for the latest subprocess command.
 from shutil import which as _which
 import time as _time
+
+X, E = __xonsh__, __xonsh__.env  # Sugar e.g. `X.last.rtn` to get return code for the latest subprocess command.
 
 # ------------------------------------------------------------------------------
 # Cross platform
 # ------------------------------------------------------------------------------
 
-if XSH.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
+if X.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
     printx("{YELLOW}xontrib-rc-awesome: We recommend to use prompt_toolkit shell by installing `xonsh[full]` package.{RESET}")
 
 # First of all replace `$` to `@` in the prompt to not to be confused with another shell.
@@ -37,7 +38,7 @@ $PROMPT_FIELDS['prompt_end'] = '@'
 # Switch subprocess output to lines (xonsh > 0.16.0) to have an ability to run commands like `du $(ls)`.
 # Note! Downstream tools can produce errors after this so wrap the loading of them into 
 # ```
-# with XSH.env.swap(XONSH_SUBPROC_OUTPUT_FORMAT='stream_lines'):
+# with X.env.swap(XONSH_SUBPROC_OUTPUT_FORMAT='stream_lines'):
 #     # load conda
 # ```
 #
@@ -112,7 +113,7 @@ def _alias_xc():
     print('')
     envs = ['CONDA_DEFAULT_ENV']
     for ev in envs:
-        if (val := XSH.env.get(ev)):
+        if (val := X.env.get(ev)):
             print(f'{ev}:', val)
 
 
