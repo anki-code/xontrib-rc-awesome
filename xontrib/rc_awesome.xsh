@@ -19,7 +19,9 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 from shutil import which as _which
 import time as _time
 
-X, E = __xonsh__, __xonsh__.env  # Sugar e.g. `X.last.rtn` to get return code for the latest subprocess command.
+# Sugar shortcuts
+# E.g. `X.last.rtn` to get return code for the latest subprocess command.
+X, E = __xonsh__, __xonsh__.env  
 
 # ------------------------------------------------------------------------------
 # Cross platform
