@@ -16,7 +16,7 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # It's a good practice to keep xonsh session cleano and add _ alias for import
 # ------------------------------------------------------------------------------
 
-XSH = __xonsh__  # Sugar.
+X = __xonsh__  # Sugar e.g. `X.last.rtn` to get return code for the latest subprocess command.
 from shutil import which as _which
 import time as _time
 
