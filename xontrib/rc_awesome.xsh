@@ -24,7 +24,7 @@ import time as _time
 #  - `X.last.rtn` or `P.rtn` to get return code for the latest subprocess command.
 #  - `with E.swap(VAR='val'): ...` to set env context.
 X, E = __xonsh__, __xonsh__.env  
-P = type('LastCP', (object,), {'__getattr__':lambda self, name: getattr(__xonsh__.last, name) })()
+P = type('LastCP', (object,), {'__getattr__':lambda self, name: getattr(__xonsh__.last, name) })()  # xonsh > 0.16.0
 
 # ------------------------------------------------------------------------------
 # Cross platform
