@@ -53,8 +53,9 @@ $PROMPT_FIELDS['prompt_end'] = '@'
 # Add xontrib-cmd-durations to right prompt.
 $RIGHT_PROMPT = '{long_cmd_duration}'
 
-# The SQLite history backend saves command immediately 
-# unlike JSON backend that save the commands at the end of the session.
+# The SQLite history backend:
+# * Saves command immediately unlike JSON backend.
+# * Allows to do `history pull` to get commands from another parallel session.
 $XONSH_HISTORY_BACKEND = 'sqlite'
 
 # What commands are saved to the history list. By default all commands are saved. 
