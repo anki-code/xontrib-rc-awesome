@@ -176,6 +176,13 @@ imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name
 # See also - https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#transparent-callable-environment-variables
 $dt = type('TimeCl', (object,), {'__repr__':lambda self: imp.datetime.datetime.now().isoformat() })()
 
+# Macro call sugar.
+# Usage:
+#   j = from_json!(echo '{"a":1}')  # returns dict
+#
+from_json = lambda cmd: __import__("json").loads(evalx(f"$({cmd})"))
+
+
 # ------------------------------------------------------------------------------
 # Conda (https://conda-forge.org/)
 # ------------------------------------------------------------------------------
