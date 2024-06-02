@@ -50,8 +50,8 @@ $PROMPT_FIELDS['prompt_end'] = '@'
 # $XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'
 
 # Environment switchers:
-# aliases['lines'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
-# aliases['stream'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'stream_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
+# aliases['xlines'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
+# aliases['xstream'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'stream_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
 
 # Add xontrib-cmd-durations to right prompt.
 $RIGHT_PROMPT = '{long_cmd_duration}'
