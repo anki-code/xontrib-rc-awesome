@@ -81,7 +81,8 @@ $MULTILINE_PROMPT = ' '
 # This allows clicking for positioning the cursor or selecting a completion.
 # In some terminals however, this disables the ability to scroll back through the history of the terminal.
 # To scroll on macOS in iTerm2 press Option key and scroll on touchpad.
-$MOUSE_SUPPORT = True
+if 'pycharm' not in __xonsh__.env.get('__CFBundleIdentifier', ''):
+    $MOUSE_SUPPORT = True
 
 
 # Adding aliases from dict.
