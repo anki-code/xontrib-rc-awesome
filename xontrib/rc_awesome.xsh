@@ -7,10 +7,13 @@ If you like the idea click ⭐ on the repo and stay tuned.
 # ------------------------------------------------------------------------------
 # xonshrc
 # ------------------------------------------------------------------------------
-# This awesome rc file was written as an example to apply in `~/.xonshrc` file.
-# But if your intentions are solid and serious please read the official 
-# documentation (https://xon.sh/xonshrc.html) about checking the $XONSH_INTERACTIVE 
-# mode or creating `_int` or `_noint` files to manage the starting carefully.
+# This awesome rc file was written as an example to apply in `~/.xonshrc` run control 
+# file that executed only when xonsh is in interactive mode i.e.:
+#  * `xonsh` - interactive mode with executing `~/.xonshrc` before.
+#  * `xonsh file.xsh` - non-interactive running without executing the `~/.xonshr` before.
+# So if your intentions are solid and serious please read the official 
+# documentation (https://xon.sh/xonshrc.html) about checking the `$XONSH_INTERACTIVE` 
+# or creating `_int` or `_noint` suffixes for files to manage the starting carefully.
 
 # ------------------------------------------------------------------------------
 # Temporary fixes of known issues
