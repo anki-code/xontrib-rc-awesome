@@ -5,6 +5,14 @@ If you like the idea click ⭐ on the repo and stay tuned.
 """ 
 
 # ------------------------------------------------------------------------------
+# xonshrc
+# ------------------------------------------------------------------------------
+# This awesome rc file was written as an example to apply in `~/.xonshrc` file.
+# But if your intentions are solid and serious please read the official 
+# documentation (https://xon.sh/xonshrc.html) about checking the $XONSH_INTERACTIVE 
+# mode or creating `_int` or `_noint` files to manage the starting carefully.
+
+# ------------------------------------------------------------------------------
 # Temporary fixes of known issues
 # ------------------------------------------------------------------------------
 
@@ -13,7 +21,7 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 
 # ------------------------------------------------------------------------------
 # Imports
-# It's a good practice to keep xonsh session cleano and add _ alias for import
+# It's a good practice to keep xonsh session cleano and add `_` alias for import.
 # ------------------------------------------------------------------------------
 
 from shutil import which as _which
@@ -24,7 +32,7 @@ import time as _time
 #  - `X.last.rtn` or `P.rtn` to get return code for the latest subprocess command.
 #  - `with E.swap(VAR='val'): ...` to set env context.
 X, E = __xonsh__, __xonsh__.env  
-P = type('LastCP', (object,), {'__getattr__':lambda self, name: getattr(__xonsh__.last, name) })()  # xonsh > 0.16.0
+P = type('LastCP', (object,), {'__getattr__':lambda self, name: getattr(__xonsh__.last, name) })()  # xonsh >= 0.17.0
 
 # ------------------------------------------------------------------------------
 # Cross platform
@@ -40,7 +48,7 @@ if X.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in
 $PROMPT_FIELDS['prompt_end'] = '@'
 
 
-# Switch subprocess output to lines (xonsh > 0.16.0) to have an ability to run commands like `du $(ls)`.
+# Switch subprocess output to lines (xonsh >= 0.17.0) to have an ability to run commands like `du $(ls)`.
 # Note! Downstream tools can produce errors after this so wrap the loading of them into 
 # ```
 # with X.env.swap(XONSH_SUBPROC_OUTPUT_FORMAT='stream_lines'):
