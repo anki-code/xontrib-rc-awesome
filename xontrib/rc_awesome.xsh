@@ -12,8 +12,7 @@ If you like the idea click ⭐ on the repo and stay tuned.
 #  * `xonsh` - interactive mode with executing `~/.xonshrc` before.
 #  * `xonsh file.xsh` - non-interactive running without executing the `~/.xonshr` before.
 # So if your intentions are solid and serious please read the official 
-# documentation (https://xon.sh/xonshrc.html) about checking the `$XONSH_INTERACTIVE` 
-# or creating `_int` or `_noint` suffixes for files to manage the starting carefully.
+# documentation (https://xon.sh/xonshrc.html) about checking the `$XONSH_INTERACTIVE`.
 
 # ------------------------------------------------------------------------------
 # Temporary fixes of known issues
