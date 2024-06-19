@@ -20,7 +20,8 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
     pip install -U git+https://github.com/yourname/xontrib-rc-yourname
 
     # Only for interactive mode:
-    echo 'xontrib load rc_yourname' >> ~/.xonshrc  # To avoid this create autoloadable xontrib using xontrib-template
+    # (You can also create autoloadable xontrib using xontrib-template.)
+    echo 'xontrib load rc_yourname' >> ~/.xonshrc
 
     # For interactive or non-interactive (https://xon.sh/xonshrc.html):
     # mkdir -p ~/.config/xonsh/rc.d/
