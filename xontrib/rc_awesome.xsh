@@ -7,12 +7,13 @@ If you like the idea click ⭐ on the repo and stay tuned.
 # ------------------------------------------------------------------------------
 # xonshrc
 # ------------------------------------------------------------------------------
+# First of all please read official xonshrc doc - https://xon.sh/xonshrc.html
 # This awesome rc file was written as an example to apply in `~/.xonshrc` run control 
 # file that executed only when xonsh is in interactive mode i.e.:
 #  * `xonsh` - interactive mode with executing `~/.xonshrc` before.
 #  * `xonsh file.xsh` - non-interactive running without executing the `~/.xonshr` before.
-# So if your intentions are solid and serious please read the official 
-# documentation (https://xon.sh/xonshrc.html) about checking the `$XONSH_INTERACTIVE`.
+# So if your want to put your run control file to another place use `$XONSH_INTERACTIVE`
+# to check the mode.
 
 # ------------------------------------------------------------------------------
 # Temporary fixes of known issues
