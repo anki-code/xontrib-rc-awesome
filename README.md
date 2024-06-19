@@ -39,7 +39,7 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
 
 Just read [rc_awesome](https://github.com/anki-code/xontrib-rc-awesome/blob/main/xontrib/rc_awesome.xsh) and copy the snippets to your xonsh RC.
 
-Or add awesome xonsh RC to the end of your xonshrc:
+Or add awesome xonsh RC to the end of your [xonshrc](https://xon.sh/xonshrc.html):
 ```
 curl -s https://raw.githubusercontent.com/anki-code/xontrib-rc-awesome/main/xontrib/rc_awesome.xsh >> ~/.xonshrc
 ```
