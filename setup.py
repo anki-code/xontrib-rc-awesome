@@ -19,6 +19,7 @@ setuptools.setup(
     python_requires='>=3.6',
     install_requires=[
         'xonsh[full]', # The awesome shell.
+        'xontrib-spec-mod', # Library of xonsh subprocess specification modifiers e.g. `$(@json echo '{}')`.
         'xontrib-prompt-bar', # The bar prompt for xonsh shell with customizable sections and Starship support. 
         'xontrib-back2dir', # Return to the most recently used directory when starting the xonsh shell. 
         'xontrib-sh', # Paste and run commands from bash, zsh, fish, tcsh in xonsh shell. 
