@@ -6,6 +6,10 @@ Awesome snippets of code for xonshrc in xonsh shell.
 If you like the idea click ⭐ on the repo and <a href="https://twitter.com/intent/tweet?text=The%20xonsh%20shell%20awesome%20rc%20file!&url=https://github.com/anki-code/awesome-xonshrc" target="_blank">tweet</a>.
 </p>
 
+### First of all
+
+Learn about xonsh run control files in official docs - [Run Control File](https://xon.sh/xonshrc.html).
+
 ### Use cases
 
 #### Create your own pip-installable RC based on the awesome xonsh RC
