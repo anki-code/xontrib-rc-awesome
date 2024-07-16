@@ -8,7 +8,7 @@ If you like the idea click ⭐ on the repo and <a href="https://twitter.com/inte
 
 ### First of all
 
-Learn about xonsh run control files in official docs - [Run Control File](https://xon.sh/xonshrc.html).
+Learn about xonsh run control (RC) files in official docs - [Run Control File](https://xon.sh/xonshrc.html). You should know about what RC files are used in interactive and non-interactive sessions.
 
 ### Use cases
 
