@@ -115,7 +115,8 @@ if $XONSH_INTERACTIVE:
 
 
     # Remove front dot in multiline input to make the code copy-pastable.
-    $MULTILINE_PROMPT = ' '
+    # $MULTILINE_PROMPT = ' ' # no background
+    $MULTILINE_PROMPT = '{BACKGROUND_#222222} {RESET}'
     
     # Enable mouse support in the prompt_toolkit shell.
     # This allows clicking for positioning the cursor or selecting a completion.
