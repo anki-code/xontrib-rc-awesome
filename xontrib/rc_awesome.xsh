@@ -36,25 +36,19 @@ from xonsh.platform import ON_LINUX, ON_DARWIN #, ON_WINDOWS, ON_WSL, ON_CYGWIN,
 # Cross platform, for interactive and non-interactive modes.
 # ------------------------------------------------------------------------------
 
-# Sugar shortcuts
+# Sugar shortcut for __xonsh__
 # Examples: 
-#  - `X.last.rtn` or `P.rtn` to get return code for the latest subprocess command.
-#  - `with E.swap(VAR='val'): ...` to set env context.
-X, E = __xonsh__, __xonsh__.env  
-P = type('LastCP', (object,), {'__getattr__':lambda self, name: getattr(__xonsh__.last, name) })()  # xonsh >= 0.17.0
+#    X.last.rtn                                     # to get return code for the latest subprocess command.
+#    with X.env.swap(VAR='val'): pass               # to set env context.
+#    X.imp.json.loads('{"a":1}')                    # {'a': 1}
+#    X.imp.datetime.datetime.now().isoformat()      # '2024-02-12T15:29:57.125696'
+#    X.imp.hashlib.md5(b'Hello world').hexdigest()  # '3e25960a79dbc69b674cd4ec67a72c62'
+X = __xonsh__
 
-#
-# Python sugar: inline import
-# Usage:
-#    imp.json.loads('{"a":1}')                    # {'a': 1}
-#    imp.datetime.datetime.now().isoformat()      # '2024-02-12T15:29:57.125696'
-#    imp.hashlib.md5(b'Hello world').hexdigest()  # '3e25960a79dbc69b674cd4ec67a72c62'
-#
-imp = type('ImpCl', (object,), {'__getattr__':lambda self, name: __import__(name) })()
 
 # Additional sugar: callable environment variable. Try `echo $dt`.
 # See also - https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#transparent-callable-environment-variables
-$dt = type('TimeCl', (object,), {'__repr__':lambda self: imp.datetime.datetime.now().isoformat() })()
+$dt = type('TimeCl', (object,), {'__repr__':lambda self: X.imp.datetime.datetime.now().isoformat() })()
 
 # Macro call sugar.
 # Usage:
@@ -153,7 +147,7 @@ if $XONSH_INTERACTIVE:
     @aliases.register("xc")
     def _alias_xc():
         """Get xonsh context."""    
-        print('xpython:', imp.sys.executable, '#', $(xpython -V).strip())
+        print('xpython:', X.imp.sys.executable, '#', $(xpython -V).strip())
         print('xpip:', $(which xpip).strip())  # xpip - xonsh's builtin to install packages in current session xonsh environment.
         print('')
         print('xonsh:', $(which xonsh))
@@ -235,7 +229,7 @@ if ON_LINUX or ON_DARWIN:
     # Adding aliases from dict.
     aliases |= {
         # Execute python that used to run current xonsh session.
-        'xpython': imp.sys.executable,
+        'xpython': X.imp.sys.executable,
 
         # List all files: sorted, with colors, directories will be first (Midnight Commander style).
         'll': "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)",
