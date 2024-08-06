@@ -50,11 +50,6 @@ X = __xonsh__
 # See also - https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#transparent-callable-environment-variables
 $dt = type('TimeCl', (object,), {'__repr__':lambda self: X.imp.datetime.datetime.now().isoformat() })()
 
-# Macro call sugar.
-# Usage:
-#   j = from_json!(echo '{"a":1}')  # returns dict
-#
-from_json = lambda cmd: __import__("json").loads(evalx(f"$({cmd})"))
 
 # Switch subprocess output to lines (xonsh >= 0.17.0) to have an ability to run commands like `du $(ls)`.
 # Note! Downstream tools can produce errors after this so wrap the loading of them into 
@@ -191,7 +186,7 @@ if $XONSH_INTERACTIVE:
     # Read more: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
     #
     _xontribs_to_load = (
-        'spec_mod',           # Library of xonsh subprocess specification modifiers e.g. `$(@json echo '{}')`.
+        'dalias',             # Library of decorator aliases (daliases) e.g. `$(@json echo '{}')`.
         'jump_to_dir',        # Jump to used before directory by part of the path. Lightweight zero-dependency implementation of autojump or zoxide projects functionality. 
         'prompt_bar',         # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
         'whole_word_jumping', # Jumping across whole words (non-whitespace) with Ctrl+Left/Right and Alt+Left/Right on Linux or Option+Left/Right on macOS.
