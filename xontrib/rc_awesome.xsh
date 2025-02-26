@@ -74,7 +74,7 @@ if ON_LINUX or ON_DARWIN:
     # Pack the for loops into the functions or delete variables manually to keep name space clean.
     del p
 
-
+# It's recommended practice to separate interactive and non-interactive code in RC files.
 if $XONSH_INTERACTIVE:
     
     if X.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
