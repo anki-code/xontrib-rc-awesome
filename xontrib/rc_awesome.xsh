@@ -51,19 +51,6 @@ X = __xonsh__
 $dt = type('TimeCl', (object,), {'__repr__':lambda self: X.imp.datetime.datetime.now().isoformat() })()
 
 
-# Switch subprocess output to lines (xonsh >= 0.17.0) to have an ability to run commands like `du $(ls)`.
-# Note! Downstream tools can produce errors after this so wrap the loading of them into 
-# ```
-# with X.env.swap(XONSH_SUBPROC_OUTPUT_FORMAT='stream_lines'):
-#     # load conda
-# ```
-#
-# $XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'
-
-# Environment switchers:
-# aliases['xlines'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'list_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
-# aliases['xstream'] = "$XONSH_SUBPROC_OUTPUT_FORMAT = 'stream_lines'; echo $XONSH_SUBPROC_OUTPUT_FORMAT"
-
 if ON_LINUX or ON_DARWIN:
     # Add default bin paths.
     for p in [p'/home/linuxbrew/.linuxbrew/bin', p'~/.local/bin'.expanduser(), p'/opt/homebrew/opt/coreutils/libexec/gnubin']:
@@ -190,7 +177,7 @@ if $XONSH_INTERACTIVE:
     # Read more: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
     #
     _xontribs_to_load = (
-        'dalias',             # Library of decorator aliases (daliases) e.g. `$(@json echo '{}')`.
+        'dalias',             # Library of decorator aliases (daliases) e.g. `$(@json echo '{}')` or `$(@lines ls)`.
         'jump_to_dir',        # Jump to used before directory by part of the path. Lightweight zero-dependency implementation of autojump or zoxide projects functionality. 
         'prompt_bar',         # The bar prompt for xonsh shell with customizable sections. URL: https://github.com/anki-code/xontrib-prompt-bar
         'whole_word_jumping', # Jumping across whole words (non-whitespace) with Ctrl+Left/Right and Alt+Left/Right on Linux or Option+Left/Right on macOS.
