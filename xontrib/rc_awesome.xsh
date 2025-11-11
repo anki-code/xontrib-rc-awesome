@@ -27,7 +27,6 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # It's a good practice to keep xonsh session cleano and add `_` alias for import.
 # ------------------------------------------------------------------------------
 
-import time as _time
 from shutil import which as _which
 from xonsh.platform import ON_LINUX, ON_DARWIN #, ON_WINDOWS, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
 
@@ -153,11 +152,10 @@ if $XONSH_INTERACTIVE:
     if _which('git'):
         @aliases.register('git-sync')
         def _git_sync(args):
-            from xonsh.tools import chdir
             paths = args if args else [$PWD]
             for p in paths:
                 print(f'git sync {p}')
-                with chdir(p):
+                with __xonsh__.imp.xonsh.tools.chdir(p):
                     git config --local user.name $USER
                     git config --local user.email $USER@$USER.local
                     git commit --allow-empty -a -uno -m "Update"
@@ -266,8 +264,7 @@ if ON_LINUX or ON_DARWIN:
         # `screen-run` alias to run command in screen session.
         @aliases.register("screen-run")
         def __screen_run(args):
-            from datetime import datetime as _datetime
-            screen_name = "s" + _datetime.now().strftime("%S%M%H")  # This screen name is more unique to run `screen -r <name>`
+            screen_name = "s" + __xonsh__.imp.datetime.datetime.now().strftime("%S%M%H")  # This screen name is more unique to run `screen -r <name>`
             screen_cmd = " ".join(args)
             print('Start session', screen_name, ':', screen_cmd)
             screen -S @(screen_name)  xonsh -c @(screen_cmd + '; echo Done; exec xonsh')
@@ -308,19 +305,17 @@ if ON_LINUX or ON_DARWIN:
     # `event.current_buffer` - https://python-prompt-toolkit.readthedocs.io/en/stable/pages/reference.html#prompt_toolkit.buffer.Buffer
     #
     
-    from prompt_toolkit.keys import Keys
-
     @events.on_ptk_create
     def custom_keybindings(bindings, **kw):
 
         # Press F1 and get the list of files
-        @bindings.add(Keys.F1)
+        @bindings.add(__xonsh__.imp.prompt_toolkit.keys.Keys.F1)
         def run_ls(event):
             ls -l
             event.cli.renderer.erase()
 
         # Press F3 to insert the grep command
-        @bindings.add(Keys.F3)
+        @bindings.add(__xonsh__.imp.prompt_toolkit.keys.Keys.F3)
         def add_grep(event):
             event.current_buffer.insert_text(' | grep -i ')     
 
@@ -332,12 +327,12 @@ if ON_LINUX or ON_DARWIN:
 
     #
     # Example of customizing the output: comma separated thousands in output.
+    # (We're using `__xonsh__.imp` - inline importer.)
     # Input: `1000+10000`.
     # Output: `11,000`.
     #    
-    import xonsh.pretty
-    xonsh.pretty.for_type(type(1), lambda int, printer, cycle: printer.text(f'{int:,}'))
-    xonsh.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{float:,}'))
+    __xonsh__.imp.xonsh.lib.pretty.for_type(type(1), lambda int, printer, cycle: printer.text(f'{int:,}'))
+    __xonsh__.imp.xonsh.lib.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{float:,}'))
 
     #
     # For the experienced users:
@@ -352,3 +347,4 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
