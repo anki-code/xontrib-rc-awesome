@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python 3
       uses: actions/setup-python@v2
       with:
-        python-version: 3
+        python-version: 3.12
     - name: Install dependencies
       run: |
         echo $(python -V)
