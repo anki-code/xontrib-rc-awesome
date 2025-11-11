@@ -68,12 +68,6 @@ if $XONSH_INTERACTIVE:
     
     if X.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
         printx("{YELLOW}xontrib-rc-awesome: We recommend to use prompt_toolkit shell by installing `xonsh[full]` package.{RESET}")
-    
-    # First of all replace `$` to `@` in the prompt to not to be confused with another shell.
-    # It will be good to read 
-    #  - https://github.com/anki-code/xonsh-cheatsheet#three-most-frequent-things-that-newcomers-missed
-    #  - https://github.com/xonsh/xonsh/issues/4152#issue-823993141
-    $PROMPT_FIELDS['prompt_end'] = '@'
 
     # Add xontrib-cmd-durations to right prompt.
     # $RIGHT_PROMPT = '{long_cmd_duration}'
@@ -350,6 +344,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
