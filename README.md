@@ -24,7 +24,7 @@ Learn about xonsh run control (RC) files in official docs - [Run Control File](h
     pip install -U git+https://github.com/yourname/xontrib-rc-yourname
 
     # Only for interactive mode:
-    # (You can also create autoloadable xontrib using xontrib-template.)
+    # (You can also create autoloadable xontrib using xontrib-template. See below.)
     echo 'xontrib load rc_yourname' >> ~/.xonshrc
 
     # For interactive or non-interactive (https://xon.sh/xonshrc.html):
