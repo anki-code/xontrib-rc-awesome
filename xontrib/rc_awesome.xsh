@@ -12,8 +12,10 @@ If you like the idea click ⭐ on the repo and stay tuned.
 # file that executed only when xonsh is in interactive mode i.e.:
 #  * `xonsh` - interactive mode with executing `~/.xonshrc` before.
 #  * `xonsh file.xsh` - non-interactive running without executing the `~/.xonshr` before.
-# So if your want to put your run control file to another place use `$XONSH_INTERACTIVE`
+# So if you want to put your run control file to another place use `$XONSH_INTERACTIVE`
 # to check the mode.
+# Finally it's better to keep the namespace clean and to use xonsh inline importer e.g. `__xonsh__.imp.xonsh.tools.chdir(p)`
+# instead of `from xonsh.tools import chdir`.
 
 # ------------------------------------------------------------------------------
 # Temporary fixes of known issues
@@ -347,4 +349,5 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
