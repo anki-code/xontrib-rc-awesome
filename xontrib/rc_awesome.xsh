@@ -14,8 +14,7 @@ If you like the idea click ⭐ on the repo and stay tuned.
 #  * `xonsh file.xsh` - non-interactive running without executing the `~/.xonshr` before.
 # So if you want to put your run control file to another place use `$XONSH_INTERACTIVE`
 # to check the mode.
-# Finally it's better to keep the namespace clean and to use xonsh inline importer e.g. `__xonsh__.imp.xonsh.tools.chdir(p)`
-# instead of `from xonsh.tools import chdir`.
+
 
 # ------------------------------------------------------------------------------
 # Temporary fixes of known issues
@@ -26,7 +25,9 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 
 # ------------------------------------------------------------------------------
 # Imports
-# It's a good practice to keep xonsh session cleano and add `_` alias for import.
+# It's a good practice to keep xonsh session cleano and add `_` alias for import
+# or use xonsh inline importer for single calls e.g. `__xonsh__.imp.xonsh.tools.chdir(p)`
+# instead of `from xonsh.tools import chdir`.
 # ------------------------------------------------------------------------------
 
 from shutil import which as _which
@@ -349,5 +350,6 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
