@@ -26,8 +26,8 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # ------------------------------------------------------------------------------
 # Imports
 # It's a good practice to keep xonsh session cleano and add `_` alias for import
-# or use xonsh inline importer for single calls e.g. `__xonsh__.imp.xonsh.tools.chdir(p)`
-# instead of `from xonsh.tools import chdir`.
+# or use xonsh inline importer for single calls e.g. `@.imp.shutil.which('ls')`
+# instead of `from shutil import which`.
 # ------------------------------------------------------------------------------
 
 from shutil import which as _which
@@ -38,19 +38,9 @@ from xonsh.platform import ON_LINUX, ON_DARWIN #, ON_WINDOWS, ON_WSL, ON_CYGWIN,
 # Cross platform, for interactive and non-interactive modes.
 # ------------------------------------------------------------------------------
 
-# Sugar shortcut for __xonsh__
-# Examples: 
-#    X.last.rtn                                     # to get return code for the latest subprocess command.
-#    with X.env.swap(VAR='val'): pass               # to set env context.
-#    X.imp.json.loads('{"a":1}')                    # {'a': 1}
-#    X.imp.datetime.datetime.now().isoformat()      # '2024-02-12T15:29:57.125696'
-#    X.imp.hashlib.md5(b'Hello world').hexdigest()  # '3e25960a79dbc69b674cd4ec67a72c62'
-X = __xonsh__
-
-
 # Additional sugar: callable environment variable. Try `echo $dt`.
 # See also - https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#transparent-callable-environment-variables
-$dt = type('TimeCl', (object,), {'__repr__':lambda self: X.imp.datetime.datetime.now().isoformat() })()
+$dt = type('TimeCl', (object,), {'__repr__':lambda self: @.imp.datetime.datetime.now().isoformat() })()
 
 
 if ON_LINUX or ON_DARWIN:
@@ -66,7 +56,7 @@ if ON_LINUX or ON_DARWIN:
 # It's recommended practice to separate interactive and non-interactive code in RC files.
 if $XONSH_INTERACTIVE:
     
-    if X.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
+    if @.env.get('XONTRIB_RC_AWESOME_SHELL_TYPE_CHECK', True) and $SHELL_TYPE not in ['prompt_toolkit', 'none', 'best']:
         printx("{YELLOW}xontrib-rc-awesome: We recommend to use prompt_toolkit shell by installing `xonsh[full]` package.{RESET}")
 
     # Add xontrib-cmd-durations to right prompt.
@@ -98,7 +88,7 @@ if $XONSH_INTERACTIVE:
     # This allows clicking for positioning the cursor or selecting a completion.
     # In some terminals however, this disables the ability to scroll back through the history of the terminal.
     # To scroll on macOS in iTerm2 press Option key and scroll on touchpad.
-    if 'pycharm' not in __xonsh__.env.get('__CFBundleIdentifier', ''):
+    if 'pycharm' not in @.env.get('__CFBundleIdentifier', ''):
         $MOUSE_SUPPORT = True
 
 
@@ -129,7 +119,7 @@ if $XONSH_INTERACTIVE:
     @aliases.register("xc")
     def _alias_xc():
         """Get xonsh context."""    
-        print('xpython:', X.imp.sys.executable, '#', $(xpython -V).strip())
+        print('xpython:', @.imp.sys.executable, '#', $(xpython -V).strip())
         print('xpip:', $(which xpip).strip())  # xpip - xonsh's builtin to install packages in current session xonsh environment.
         print('')
         print('xonsh:', $(which xonsh))
@@ -140,7 +130,7 @@ if $XONSH_INTERACTIVE:
         print('')
         envs = ['CONDA_DEFAULT_ENV']
         for ev in envs:
-            if (val := X.env.get(ev)):
+            if (val := @.env.get(ev)):
                 print(f'{ev}:', val)
 
 
@@ -152,7 +142,7 @@ if $XONSH_INTERACTIVE:
             paths = args if args else [$PWD]
             for p in paths:
                 print(f'git sync {p}')
-                with __xonsh__.imp.xonsh.tools.chdir(p):
+                with @.imp.xonsh.tools.chdir(p):
                     git config --local user.name $USER
                     git config --local user.email $USER@$USER.local
                     git commit --allow-empty -a -uno -m "Update"
@@ -210,7 +200,7 @@ if ON_LINUX or ON_DARWIN:
     # Adding aliases from dict.
     aliases |= {
         # Execute python that used to run current xonsh session.
-        'xpython': X.imp.sys.executable,
+        'xpython': @.imp.sys.executable,
 
         # List all files: sorted, with colors, directories will be first (Midnight Commander style).
         'll': "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)",
@@ -261,7 +251,7 @@ if ON_LINUX or ON_DARWIN:
         # `screen-run` alias to run command in screen session.
         @aliases.register("screen-run")
         def __screen_run(args):
-            screen_name = "s" + __xonsh__.imp.datetime.datetime.now().strftime("%S%M%H")  # This screen name is more unique to run `screen -r <name>`
+            screen_name = "s" + @.imp.datetime.datetime.now().strftime("%S%M%H")  # This screen name is more unique to run `screen -r <name>`
             screen_cmd = " ".join(args)
             print('Start session', screen_name, ':', screen_cmd)
             screen -S @(screen_name)  xonsh -c @(screen_cmd + '; echo Done; exec xonsh')
@@ -306,13 +296,13 @@ if ON_LINUX or ON_DARWIN:
     def custom_keybindings(bindings, **kw):
 
         # Press F1 and get the list of files
-        @bindings.add(__xonsh__.imp.prompt_toolkit.keys.Keys.F1)
+        @bindings.add(@.imp.prompt_toolkit.keys.Keys.F1)
         def run_ls(event):
             ls -l
             event.cli.renderer.erase()
 
         # Press F3 to insert the grep command
-        @bindings.add(__xonsh__.imp.prompt_toolkit.keys.Keys.F3)
+        @bindings.add(@.imp.prompt_toolkit.keys.Keys.F3)
         def add_grep(event):
             event.current_buffer.insert_text(' | grep -i ')     
 
@@ -324,12 +314,11 @@ if ON_LINUX or ON_DARWIN:
 
     #
     # Example of customizing the output: comma separated thousands in output.
-    # (We're using `__xonsh__.imp` - inline importer.)
     # Input: `1000+10000`.
     # Output: `11,000`.
     #    
-    __xonsh__.imp.xonsh.lib.pretty.for_type(type(1), lambda int, printer, cycle: printer.text(f'{int:,}'))
-    __xonsh__.imp.xonsh.lib.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{float:,}'))
+    @.imp.xonsh.lib.pretty.for_type(type(1), lambda int, printer, cycle: printer.text(f'{int:,}'))
+    @.imp.xonsh.lib.pretty.for_type(type(1.0), lambda float, printer, cycle: printer.text(f'{float:,}'))
 
     #
     # For the experienced users:
@@ -344,6 +333,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
