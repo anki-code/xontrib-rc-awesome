@@ -114,26 +114,6 @@ if $XONSH_INTERACTIVE:
         cd @("../" * len($__ALIAS_NAME))
 
 
-    # Alias to get Xonsh Context.
-    # Read more: https://github.com/anki-code/xonsh-cheatsheet/blob/main/README.md#install-xonsh-with-package-and-environment-management-system
-    @aliases.register("xc")
-    def _alias_xc():
-        """Get xonsh context."""    
-        print('xpython:', @.imp.sys.executable, '#', $(xpython -V).strip())
-        print('xpip:', $(which xpip).strip())  # xpip - xonsh's builtin to install packages in current session xonsh environment.
-        print('')
-        print('xonsh:', $(which xonsh))
-        print('python:', $(which python), '#' ,$(python -V).strip())
-        print('pip:', $(which pip))
-        if _which('pytest'):
-            print('pytest:', $(which pytest))
-        print('')
-        envs = ['CONDA_DEFAULT_ENV']
-        for ev in envs:
-            if (val := @.env.get(ev)):
-                print(f'{ev}:', val)
-
-
     # Example of utilizing `xonsh.tools.chdir` to do git commit, git config, git pull and push at once.
     # Usage: git-sync ~/git/myrepo1 ~/git/myrepo2
     if _which('git'):
@@ -199,8 +179,6 @@ if ON_LINUX or ON_DARWIN:
 
     # Adding aliases from dict.
     aliases |= {
-        # Execute python that used to run current xonsh session.
-        'xpython': @.imp.sys.executable,
 
         # List all files: sorted, with colors, directories will be first (Midnight Commander style).
         'll': "$LC_COLLATE='C' ls --group-directories-first -lAh --color @($args)",
@@ -333,6 +311,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
