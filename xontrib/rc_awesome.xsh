@@ -105,13 +105,8 @@ if $XONSH_INTERACTIVE:
 
     # Easy way to go back cd-ing.
     # Example: `,,` the same as `cd ../../`
-    @aliases.register(",")
-    @aliases.register(",,")
-    @aliases.register(",,,")
-    @aliases.register(",,,,")
-    def _alias_supercomma():
-        """Easy way to go back cd-ing."""
-        cd @("../" * len($__ALIAS_NAME))
+    for i in range(1, 6):
+        aliases[','*i] = lambda: $[cd @("../" * len($__ALIAS_NAME))]
 
 
     # Example of utilizing `xonsh.tools.chdir` to do git commit, git config, git pull and push at once.
@@ -311,6 +306,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
