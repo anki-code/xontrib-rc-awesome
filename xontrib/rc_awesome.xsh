@@ -106,7 +106,8 @@ if $XONSH_INTERACTIVE:
     # Easy way to go back cd-ing.
     # Example: `,,` the same as `cd ../../`
     for i in range(1, 6):
-        aliases[','*i] = lambda: $[cd @("../" * len($__ALIAS_NAME))]
+        aliases[',' * i] = f"cd {'../' * i}"
+        # aliases[','*i] = lambda: $[cd @("../" * len($__ALIAS_NAME))]  # Example with `$__ALIAS_NAME`.
 
 
     # Example of utilizing `xonsh.tools.chdir` to do git commit, git config, git pull and push at once.
@@ -306,6 +307,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
