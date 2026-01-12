@@ -151,11 +151,18 @@ if $XONSH_INTERACTIVE:
     xontrib load -s @(_xontribs_to_load)
 
     
-    # ------------------------------------------------------------------------------
     # Conda (https://conda-forge.org/)
-    # ------------------------------------------------------------------------------
     # To speed up startup you can disable auto activate the base environment.
     # $CONDA_AUTO_ACTIVATE_BASE = 'false'
+
+    # 
+    # Events - https://xon.sh/events.html
+    #
+    @events.on_postcommand
+    def _prompt_err_command_again(cmd, rtn, out, ts):
+        """Keep command that returns non zero value in prompt."""
+        if rtn != 0:
+            $XONSH_PROMPT_NEXT_CMD = cmd.rstrip()
 
 
 if ON_LINUX or ON_DARWIN:
@@ -307,6 +314,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
