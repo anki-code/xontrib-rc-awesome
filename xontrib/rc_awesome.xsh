@@ -158,11 +158,12 @@ if $XONSH_INTERACTIVE:
     # 
     # Events - https://xon.sh/events.html
     #
-    @events.on_postcommand
-    def _prompt_err_command_again(cmd, rtn, out, ts):
-        """Keep command that returns non zero value in prompt."""
-        if rtn != 0:
-            $XONSH_PROMPT_NEXT_CMD = cmd.rstrip()
+    if 0:  # Enable manually.
+        @events.on_postcommand
+        def _prompt_err_command_again(cmd, rtn, out, ts):
+            """Keep command that returns non zero value in prompt."""
+            if rtn != 0:
+                $XONSH_PROMPT_NEXT_CMD = cmd.rstrip()
 
 
 if ON_LINUX or ON_DARWIN:
@@ -314,6 +315,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
