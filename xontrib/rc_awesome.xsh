@@ -158,13 +158,24 @@ if $XONSH_INTERACTIVE:
     # 
     # Events - https://xon.sh/events.html
     #
-    if False:  # Enable manually.
-        @events.on_postcommand
-        def _prompt_err_command_again(cmd, rtn, out, ts):
-            """Keep command that returns non zero value in prompt."""
-            if rtn != 0:
-                $XONSH_PROMPT_NEXT_CMD = cmd.rstrip()
+    @events.on_postcommand
+    def _prompt_err_command_again(cmd, rtn, out, ts):
+        """If command failed suggest same command to edit."""
+        if rtn != 0:
+            $XONSH_PROMPT_NEXT_CMD_SUGGESTION = cmd.rstrip()
 
+    @events.on_postcommand
+    def _next_cmd_from_history(cmd, rtn, out, ts):
+        """If current command was successful fill the next suggestion by the next command from the history."""
+        if rtn == 0:
+            hist = __xonsh__.history
+            len_hist = len(hist)
+            for i in range(len_hist - 2, -1, -1):
+                if hist[i].cmd.rstrip() == cmd.rstrip():
+                    next_cmd = hist[i + 1].cmd if i + 1 < len_hist else None
+                    if next_cmd:
+                        $XONSH_PROMPT_NEXT_CMD_SUGGESTION = next_cmd.rstrip()
+                    break
 
 if ON_LINUX or ON_DARWIN:
        
@@ -315,6 +326,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
