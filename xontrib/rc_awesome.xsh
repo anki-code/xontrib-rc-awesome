@@ -167,7 +167,7 @@ if $XONSH_INTERACTIVE:
     @events.on_postcommand
     def _next_cmd_from_history(cmd, rtn, out, ts):
         """If current command was successful fill the next suggestion by the next command from the history."""
-        if rtn == 0:
+        if rtn == 0 and cmd[:-1] != 'clear':
             hist = __xonsh__.history
             len_hist = len(hist)
             for i in range(len_hist - 2, -1, -1):
@@ -326,6 +326,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
