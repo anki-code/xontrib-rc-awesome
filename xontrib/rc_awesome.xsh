@@ -161,9 +161,9 @@ if $XONSH_INTERACTIVE:
 
     @events.on_transform_command
     def _pipe_prev_command(cmd, **kw):
-        """Pipe prev command e.g. `| grep 1` will be `<prev cmd> | grep 1`."""
+        '''Pipe prev command e.g. `| grep 1` will be `<prev cmd> | grep 1`.'''
         if cmd and cmd.startswith('| ') and __xonsh__.history:
-            return __xonsh__.history[-1].cmd.rstrip() + cmd.rstrip()
+            return __xonsh__.history[-1].cmd.rstrip() + ' ' + cmd.rstrip()
         return cmd
 
     @events.on_postcommand
@@ -334,6 +334,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
