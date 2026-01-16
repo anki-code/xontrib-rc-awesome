@@ -158,6 +158,14 @@ if $XONSH_INTERACTIVE:
     # 
     # Events - https://xon.sh/events.html
     #
+
+    @events.on_transform_command
+    def _pipe_prev_command(cmd, **kw):
+        """Pipe prev command e.g. `| grep 1` will be `<prev cmd> | grep 1`."""
+        if cmd and cmd.startswith('| ') and __xonsh__.history:
+            return __xonsh__.history[-1].cmd.rstrip() + cmd.rstrip()
+        return cmd
+
     @events.on_postcommand
     def _prompt_err_command_again(cmd, rtn, out, ts):
         """If command failed suggest same command to edit."""
@@ -326,6 +334,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
