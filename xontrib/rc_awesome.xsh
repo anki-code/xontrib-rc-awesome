@@ -100,6 +100,10 @@ if $XONSH_INTERACTIVE:
         
         # update pip and xonsh
         'xonsh-update': 'xpip install -U pip && xpip install -U --force-reinstall git+https://github.com/xonsh/xonsh',
+
+        # Install local LLM model https://ollama.com/download
+        # and just run `ai! command to remove all images from docker`
+        'ai': 'ollama run llama3',
     }
 
 
@@ -334,6 +338,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
