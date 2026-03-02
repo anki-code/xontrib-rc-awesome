@@ -107,6 +107,20 @@ if $XONSH_INTERACTIVE:
     }
 
 
+    # When you copy and paste file path you want to just run `cd ~/path/to/file.txt` without keystrokes on deleting `file.txt`
+    # so this cd alias replacer is doing that.
+    aliases['_cd'] = aliases['cd']
+    @aliases.register
+    @aliases.return_command
+    def _cd(args):
+        if args:
+            p = @.imp.pathlib.Path(args[0])
+            if (p.exists() and p.is_file()) or (not p.exists() and p.parent.exists() and '.' in p.name):
+                printx(f'cd to parent {p.parent}', 'YELLOW')
+                return ['_cd', str(p.parent)]
+        return ['_cd'] + args
+
+
     # Easy way to go back cd-ing.
     # Example: `,,` the same as `cd ../../`
     for i in range(1, 6):
@@ -338,6 +352,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
