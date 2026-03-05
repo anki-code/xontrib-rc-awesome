@@ -57,6 +57,7 @@ xonsh
 
 #### Learn from xonsh RC gurus
 
+* [Qyriad NixOS RC](https://github.com/Qyriad/dotfiles/blob/404f4378275a0f31e7c1dabdf5a25625c6af62eb/xonsh/rc.xsh)
 * [Anthony Scopatz RC](https://github.com/xonsh/xonsh/pull/3917#issuecomment-715649009) (click Details to see the xonshrc)
 * [Sean Farley RC](https://github.com/seanfarley/dotfiles/blob/c87811f50cd696a8d4ddce83c1ca295a00b70218/xonshrc)
 * [Gyuri Horak RC](https://github.com/dyuri/rcfiles/blob/master/.xonshrc)
