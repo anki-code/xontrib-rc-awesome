@@ -98,12 +98,10 @@ if $XONSH_INTERACTIVE:
         '-': 'cd -',
         '..': 'cd ..',
         
-        # update pip and xonsh
+        # Update pip and xonsh to the lateset version on Github.
         'xonsh-update': 'xpip install -U pip && xpip install -U --force-reinstall git+https://github.com/xonsh/xonsh',
-
-        # Install local LLM model https://ollama.com/download
-        # and just run `ai! command to remove all images from docker`
-        'ai': 'ollama run llama3',
+        # Run xonsh without environment for experimenting.
+        'xonsh-no-env': 'xonsh --no-rc --no-env -DPATH -DTERM -DHOME -DXONSH_SHOW_TRACEBACK=1',
     }
 
 
@@ -127,6 +125,10 @@ if $XONSH_INTERACTIVE:
         aliases[',' * i] = f"cd {'../' * i}"
         # aliases[','*i] = lambda: $[cd @("../" * len($__ALIAS_NAME))]  # Example with `$__ALIAS_NAME`.
 
+    # Install local LLM model from https://ollama.com/download
+    # and just run `ai! command to remove all images from docker`
+    if _which('ollama'):
+        aliases['ai'] = 'ollama run llama3'
 
     # Example of utilizing `xonsh.tools.chdir` to do git commit, git config, git pull and push at once.
     # Usage: git-sync ~/git/myrepo1 ~/git/myrepo2
@@ -352,6 +354,7 @@ if ON_LINUX or ON_DARWIN:
 
 
 # Thanks for reading! PR is welcome!
+
 
 
 
