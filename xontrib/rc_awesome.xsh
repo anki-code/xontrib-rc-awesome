@@ -47,7 +47,7 @@ if ON_LINUX or ON_DARWIN:
     # Add default bin paths.
     for p in [p'/home/linuxbrew/.linuxbrew/bin', p'~/.local/bin'.expanduser(), p'/opt/homebrew/opt/coreutils/libexec/gnubin']:
         if p.exists():
-            $PATH.append(str(p))  # or `$PATH.prepend()`
+            $PATH.append(p)  # or `$PATH.prepend(p)`
     
     # Remember that variables from for-loop stay in a name space. 
     # Pack the for loops into the functions or delete variables manually to keep name space clean.
