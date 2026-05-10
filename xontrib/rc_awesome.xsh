@@ -31,7 +31,7 @@ __import__('warnings').filterwarnings('ignore', 'There is no current event loop'
 # ------------------------------------------------------------------------------
 
 from shutil import which as _which
-from xonsh.platform import ON_LINUX, ON_DARWIN #, ON_WINDOWS, ON_WSL, ON_CYGWIN, ON_MSYS, ON_POSIX, ON_FREEBSD, ON_DRAGONFLY, ON_NETBSD, ON_OPENBSD
+from xonsh.platform import ON_LINUX, ON_DARWIN, ON_WINDOWS 
 
 
 # ------------------------------------------------------------------------------
@@ -95,25 +95,33 @@ if $XONSH_INTERACTIVE:
         '-': 'cd -',
         '..': 'cd ..',
         
-        # Update pip and xonsh to the lateset version on Github.
-        'xonsh-update': 'xpip install -U pip && xpip install -U --force-reinstall git+https://github.com/xonsh/xonsh',
         # Run xonsh without environment for experimenting.
         'xonsh-no-env': 'xonsh --no-rc --no-env -DPATH -DTERM -DHOME -DXONSH_SHOW_TRACEBACK=1',
     }
 
+    if ON_WINDOWS:
+        @aliases.register
+        def _xonsh_update():
+            """Update xonsh. Docs: https://xon.sh/platforms.html#updating-xonsh""
+            print('Exit from xonsh and run for update:')
+            print($(which xpython) + ' pip install -U --force-reinstall git+https://github.com/xonsh/xonsh')
+    else:
+        # Update pip and xonsh to the lateset version on Github.
+        aliases['xonsh-update'] = 'xpip install -U pip && xpip install -U --force-reinstall git+https://github.com/xonsh/xonsh'
+
 
     # When you copy and paste file path you want to just run `cd ~/path/to/file.txt` without keystrokes on deleting `file.txt`
     # so this cd alias replacer is doing that.
-    aliases['_cd'] = aliases['cd']
+    aliases['_builtin_cd'] = aliases['cd']
     @aliases.register
     @aliases.return_command
     def _cd(args):
         if args:
             p = @.imp.pathlib.Path(args[0])
             if (p.exists() and p.is_file()) or (not p.exists() and p.parent.exists() and '.' in p.name):
-                printx(f'cd to parent {p.parent}', 'YELLOW')
-                return ['_cd', str(p.parent)]
-        return ['_cd'] + args
+                @.imp.xonsh.tools.print_above_prompt(f'cd to parent {p.parent}')  # Good practice.
+                return ['_builtin_cd', str(p.parent)]
+        return ['_builtin_cd'] + args    
 
 
     # Easy way to go back cd-ing.
