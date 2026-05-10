@@ -120,7 +120,8 @@ if $XONSH_INTERACTIVE:
     # Example: `,,` the same as `cd ../../`
     for i in range(1, 6):
         aliases[',' * i] = f"cd {'../' * i}"
-        # aliases[','*i] = lambda: $[cd @("../" * len($__ALIAS_NAME))]  # Example with `$__ALIAS_NAME`.
+        # or
+        # aliases[',' * i] = lambda called_alias_name: $[cd @("../" * len(called_alias_name))]
 
     # Install local LLM model from https://ollama.com/download
     # and just run `ai! command to remove all images from docker`
