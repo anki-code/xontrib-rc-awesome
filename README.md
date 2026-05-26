@@ -16,9 +16,9 @@ Learn about xonsh run control (RC) files in official docs - [Run Control File](h
 
 1. Fork this repository
 2. Rename the repository to `xontrib-rc-yourname`
-3. Change the name [in setup.py](https://github.com/anki-code/xontrib-rc-awesome/blob/e21370c1155262b8e25bd354cb4d4f9f15945384/setup.py#L11)
+3. Change the name in `pyproject.toml` (`[project]` → `name`)
 4. Change the name of `xontrib/rc_awesome.xsh` to `xontrib/rc_yourname.xsh`
-5. [Add xontribs you need to setup.py](https://github.com/anki-code/xontrib-rc-awesome/blob/495dce4c8e7e8c9882ea002db60935d03f3fb861/setup.py#L20-L38) (the xontribs will be installed automatically during `pip install`)
+5. Add xontribs you need to `pyproject.toml` (`[project]` → `dependencies`) — they will be installed automatically during `pip install`
 6. Now you can just run anywhere:
     ```xonsh
     pip install -U git+https://github.com/yourname/xontrib-rc-yourname
@@ -35,7 +35,7 @@ Learn about xonsh run control (RC) files in official docs - [Run Control File](h
     ```
     Also you can avoid manual loading the xontrib in `~/.xonshrc` by creating autoloadable xontrib using [xontrib-template](https://github.com/xonsh/xontrib-template). Answer yes on the question about enabling autoloading.
     
-7. [Increment version](https://github.com/anki-code/xontrib-rc-awesome/blob/df5c0aa3e29325f5d926cec7022cd2ccc184c0c5/setup.py#L12) to update the package using `pip install -U git+https://github.com/yourname/xontrib-rc-yourname`
+7. Increment `version` in `pyproject.toml` to update the package using `pip install -U git+https://github.com/yourname/xontrib-rc-yourname`
 
 8. Take a look into [xonsh-awesome-cli-app](https://github.com/anki-code/xonsh-awesome-cli-app) if you want to create your own toolset.
 
@@ -48,7 +48,7 @@ Or add awesome xonsh RC to the end of your [xonshrc](https://xon.sh/xonshrc.html
 curl -s https://raw.githubusercontent.com/anki-code/xontrib-rc-awesome/main/xontrib/rc_awesome.xsh >> ~/.xonshrc
 ```
 
-Or install awesome [xonsh RC as a package](https://github.com/anki-code/xontrib-rc-awesome/blob/fabe895fbdd89f7bd3050bf492aa0665624a9705/setup.py#L10-L16) with [automatically installable xontribs](https://github.com/anki-code/xontrib-rc-awesome/blob/fabe895fbdd89f7bd3050bf492aa0665624a9705/setup.py#L20-L30):
+Or install awesome xonsh RC as a package with automatically installable xontribs:
 ```xonsh
 pip install -U git+https://github.com/anki-code/xontrib-rc-awesome
 echo 'xontrib load rc_awesome' >> ~/.xonshrc

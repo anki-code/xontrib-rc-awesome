@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "xontrib-rc-awesome"
+version = "0.15.2"
+description = "Awesome snippets of code for xonshrc in xonsh shell."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    { name = "anki-code", email = "no@no.no" },
+]
+dependencies = [
+    "xonsh[full]",
+    "xontrib-spec-mod",
+    "xontrib-prompt-bar",
+    "xontrib-back2dir",
+    "xontrib-sh",
+    "xontrib-pipeliner",
+    "xontrib-output-search",
+    "xontrib-argcomplete",
+    "xontrib-cmd-durations",
+    "xontrib-jedi",
+    "xontrib-jump-to-dir",
+    "xontrib-clp",
+]
+
+[project.optional-dependencies]
+xxh = ["xxh-xxh"]
+
+[project.urls]
+Homepage = "https://github.com/anki-code/xontrib-rc-awesome"
+Repository = "https://github.com/anki-code/xontrib-rc-awesome"
+
+[tool.setuptools]
+packages = ["xontrib"]
+
+[tool.setuptools.package-data]
+xontrib = ["*.py", "*.xsh"]
